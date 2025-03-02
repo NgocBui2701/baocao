@@ -38,7 +38,6 @@ namespace baocao
             btnExit.FillColor = Color.Transparent;
             btnExit.ForeColor = Color.DarkGray;
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtUsername.Text;
@@ -47,7 +46,7 @@ namespace baocao
             {
                 Account loginAccount = AccountDAO.Instance.GetAccountByUsername(userName);
                 this.Hide();
-                fHome homeF = new fHome(loginAccount);
+                fMain homeF = new fMain(loginAccount);
                 homeF.ShowDialog();
             }
             else
@@ -67,7 +66,6 @@ namespace baocao
             btnLogin.FillColor2 = Color.Gold;
             btnLogin.Size = new Size(235, 45);
         }
-
         #endregion
     }
 }

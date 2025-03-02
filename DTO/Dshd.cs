@@ -9,8 +9,9 @@ namespace baocao.DTO
 {
     public class Dshd
     {
-        public Dshd(string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public Dshd(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
         {
+            this.MaHD = maHD;
             this.MaCT = maCT;
             this.TenCT = tenCT;
             this.KyHieuCT = kyHieuCT;
@@ -21,20 +22,20 @@ namespace baocao.DTO
         }
         public Dshd(DataRow row)
         {
-            if (!row.Table.Columns.Contains("MaCT"))
+            if (!row.Table.Columns.Contains("MaHD"))
             {
-                throw new ArgumentException("Cột 'MaCT' không tồn tại trong DataTable.");
+                throw new ArgumentException("Cột 'MaHD' không tồn tại trong DataTable.");
             }
-
+            this.MaHD = row["MaHD"].ToString();
             this.MaCT = row["MaCT"].ToString();
             this.TenCT = row["TenCT"].ToString();
             this.KyHieuCT = row["KyHieuCT"].ToString();
-            this.NgayHD = row["NgayHD"].ToString(); 
+            this.NgayHD = Convert.ToDateTime(row["NgayHD"]).ToString("dd/MM/yyyy");
             this.TenDaiDien = row["TenDaiDien"].ToString();
             this.Sdt = row["Sdt"].ToString();
             this.DiaChi = row["DiaChi"].ToString();
         }
-
+        private string maHD;
         private string maCT;
         private string tenCT;
         private string kyHieuCT;
@@ -42,6 +43,7 @@ namespace baocao.DTO
         private string tenDaiDien;
         private string sdt;
         private string diaChi;
+        public string MaHD { get => maHD; set => maHD = value; }
         public string MaCT { get => maCT; set => maCT = value; }
         public string TenCT { get => tenCT; set => tenCT = value; }
         public string KyHieuCT { get => kyHieuCT; set => kyHieuCT = value; }

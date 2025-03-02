@@ -31,13 +31,13 @@ namespace baocao.DAO
         private AccountDAO() { }
         public bool Login(string userName, string passWord)
         {
-            string query = "USP_Login @userName , @passWord";
-            return DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord }).Rows.Count > 0;
+            string query = "USP_Login";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord }, true).Rows.Count > 0;
         }
         public Account GetAccountByUsername(string username)
         {
-            string query = "USP_GetAccountByUsername @username";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            string query = "USP_GetAccountByUsername";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username }, true);
             foreach (DataRow item in data.Rows)
             {
                 return new Account(item);

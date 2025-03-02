@@ -28,180 +28,325 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            button8 = new Button();
-            button7 = new Button();
-            textBox2 = new TextBox();
-            button11 = new Button();
-            button10 = new Button();
-            button9 = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            btnInsert = new Button();
+            btnEdit = new Button();
+            txtPage = new TextBox();
+            btnPrevPage = new Button();
+            btnNextPage = new Button();
+            btnFirstPage = new Button();
             panel2 = new Panel();
-            lvDSHD = new ListView();
-            MaCT = new ColumnHeader();
-            TenCT = new ColumnHeader();
-            KyHieuCT = new ColumnHeader();
-            NgayKyHD = new ColumnHeader();
-            TenDaiDien = new ColumnHeader();
-            SDT = new ColumnHeader();
-            DiaChi = new ColumnHeader();
+            labelPage = new Label();
+            btnLastPage = new Button();
+            dgvDshd = new Guna.UI2.WinForms.Guna2DataGridView();
+            MaCT = new DataGridViewTextBoxColumn();
+            TenCT = new DataGridViewTextBoxColumn();
+            KyHieuCT = new DataGridViewTextBoxColumn();
+            NgayHD = new DataGridViewTextBoxColumn();
+            TenDaiDien = new DataGridViewTextBoxColumn();
+            Sdt = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
+            btnDel = new Button();
+            panel1 = new Panel();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDshd).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // btnInsert
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox1.Location = new Point(268, 29);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(80, 23);
-            textBox1.TabIndex = 10;
-            textBox1.Text = "search ";
+            btnInsert.Location = new Point(6, 32);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(60, 23);
+            btnInsert.TabIndex = 9;
+            btnInsert.Text = "Thêm";
+            btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
             // 
-            // button8
+            // btnEdit
             // 
-            button8.Location = new Point(15, 24);
-            button8.Name = "button8";
-            button8.Size = new Size(60, 23);
-            button8.TabIndex = 9;
-            button8.Text = "insert";
-            button8.UseVisualStyleBackColor = true;
+            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEdit.Location = new Point(149, 32);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(66, 23);
+            btnEdit.TabIndex = 8;
+            btnEdit.Text = "Sửa";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
-            // button7
+            // txtPage
             // 
-            button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button7.Location = new Point(434, 14);
-            button7.Name = "button7";
-            button7.Size = new Size(66, 51);
-            button7.TabIndex = 8;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
+            txtPage.Anchor = AnchorStyles.None;
+            txtPage.Location = new Point(694, 12);
+            txtPage.Name = "txtPage";
+            txtPage.PlaceholderText = "...";
+            txtPage.Size = new Size(40, 23);
+            txtPage.TabIndex = 19;
+            txtPage.TextAlign = HorizontalAlignment.Center;
+            txtPage.TextChanged += txtPage_TextChanged;
+            txtPage.KeyDown += txtPage_KeyDown;
             // 
-            // textBox2
+            // btnPrevPage
             // 
-            textBox2.Anchor = AnchorStyles.None;
-            textBox2.Location = new Point(322, 13);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(40, 23);
-            textBox2.TabIndex = 19;
-            textBox2.Text = "...";
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            btnPrevPage.Anchor = AnchorStyles.None;
+            btnPrevPage.Location = new Point(649, 12);
+            btnPrevPage.Name = "btnPrevPage";
+            btnPrevPage.Size = new Size(38, 23);
+            btnPrevPage.TabIndex = 18;
+            btnPrevPage.Text = "<";
+            btnPrevPage.UseVisualStyleBackColor = true;
+            btnPrevPage.Click += btnPrevPage_Click;
             // 
-            // button11
+            // btnNextPage
             // 
-            button11.Anchor = AnchorStyles.None;
-            button11.Location = new Point(237, 12);
-            button11.Name = "button11";
-            button11.Size = new Size(38, 23);
-            button11.TabIndex = 18;
-            button11.Text = "2";
-            button11.UseVisualStyleBackColor = true;
+            btnNextPage.Anchor = AnchorStyles.None;
+            btnNextPage.Location = new Point(740, 12);
+            btnNextPage.Name = "btnNextPage";
+            btnNextPage.Size = new Size(38, 23);
+            btnNextPage.TabIndex = 17;
+            btnNextPage.Text = ">";
+            btnNextPage.UseVisualStyleBackColor = true;
+            btnNextPage.Click += btnNextPage_Click;
             // 
-            // button10
+            // btnFirstPage
             // 
-            button10.Anchor = AnchorStyles.None;
-            button10.Location = new Point(278, 12);
-            button10.Name = "button10";
-            button10.Size = new Size(38, 23);
-            button10.TabIndex = 17;
-            button10.Text = "3";
-            button10.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Anchor = AnchorStyles.None;
-            button9.Location = new Point(196, 12);
-            button9.Name = "button9";
-            button9.Size = new Size(38, 23);
-            button9.TabIndex = 16;
-            button9.Text = "1";
-            button9.UseVisualStyleBackColor = true;
+            btnFirstPage.Anchor = AnchorStyles.None;
+            btnFirstPage.Location = new Point(572, 12);
+            btnFirstPage.Name = "btnFirstPage";
+            btnFirstPage.Size = new Size(71, 23);
+            btnFirstPage.TabIndex = 16;
+            btnFirstPage.Text = "Trang đầu";
+            btnFirstPage.UseVisualStyleBackColor = true;
+            btnFirstPage.Click += btnFirstPage_Click;
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom;
-            panel2.Controls.Add(button9);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button11);
-            panel2.Controls.Add(button10);
-            panel2.Location = new Point(-2, 368);
+            panel2.Controls.Add(labelPage);
+            panel2.Controls.Add(btnLastPage);
+            panel2.Controls.Add(txtPage);
+            panel2.Controls.Add(btnFirstPage);
+            panel2.Controls.Add(btnPrevPage);
+            panel2.Controls.Add(btnNextPage);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 370);
             panel2.Name = "panel2";
-            panel2.Size = new Size(587, 50);
+            panel2.Size = new Size(957, 50);
             panel2.TabIndex = 20;
             // 
-            // lvDSHD
+            // labelPage
             // 
-            lvDSHD.AllowColumnReorder = true;
-            lvDSHD.AllowDrop = true;
-            lvDSHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lvDSHD.BackColor = Color.White;
-            lvDSHD.Columns.AddRange(new ColumnHeader[] { MaCT, TenCT, KyHieuCT, NgayKyHD, TenDaiDien, SDT, DiaChi });
-            lvDSHD.ForeColor = Color.Black;
-            lvDSHD.FullRowSelect = true;
-            lvDSHD.HoverSelection = true;
-            lvDSHD.ImeMode = ImeMode.NoControl;
-            lvDSHD.LabelWrap = false;
-            lvDSHD.Location = new Point(12, 102);
-            lvDSHD.MultiSelect = false;
-            lvDSHD.Name = "lvDSHD";
-            lvDSHD.Size = new Size(560, 260);
-            lvDSHD.TabIndex = 21;
-            lvDSHD.UseCompatibleStateImageBehavior = false;
-            lvDSHD.View = View.Details;
-            lvDSHD.ItemActivate += lvDSHD_ItemActivate;
+            labelPage.AutoSize = true;
+            labelPage.Location = new Point(436, 15);
+            labelPage.Name = "labelPage";
+            labelPage.Size = new Size(36, 15);
+            labelPage.TabIndex = 21;
+            labelPage.Text = "Trang";
+            // 
+            // btnLastPage
+            // 
+            btnLastPage.Anchor = AnchorStyles.None;
+            btnLastPage.Location = new Point(784, 12);
+            btnLastPage.Name = "btnLastPage";
+            btnLastPage.Size = new Size(75, 23);
+            btnLastPage.TabIndex = 20;
+            btnLastPage.Text = "Trang cuối";
+            btnLastPage.UseVisualStyleBackColor = true;
+            btnLastPage.Click += btnLastPage_Click;
+            // 
+            // dgvDshd
+            // 
+            dgvDshd.AllowUserToAddRows = false;
+            dgvDshd.AllowUserToDeleteRows = false;
+            dgvDshd.AllowUserToResizeColumns = false;
+            dgvDshd.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgvDshd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDshd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvDshd.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(0, 0, 5, 0);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvDshd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvDshd.ColumnHeadersHeight = 36;
+            dgvDshd.Columns.AddRange(new DataGridViewColumn[] { MaCT, TenCT, KyHieuCT, NgayHD, TenDaiDien, Sdt, DiaChi });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvDshd.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvDshd.Dock = DockStyle.Fill;
+            dgvDshd.GridColor = Color.FromArgb(231, 229, 255);
+            dgvDshd.Location = new Point(0, 67);
+            dgvDshd.MultiSelect = false;
+            dgvDshd.Name = "dgvDshd";
+            dgvDshd.ReadOnly = true;
+            dgvDshd.RowHeadersVisible = false;
+            dgvDshd.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvDshd.Size = new Size(957, 303);
+            dgvDshd.TabIndex = 22;
+            dgvDshd.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvDshd.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvDshd.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvDshd.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvDshd.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvDshd.ThemeStyle.BackColor = Color.White;
+            dgvDshd.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvDshd.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvDshd.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDshd.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvDshd.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDshd.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvDshd.ThemeStyle.HeaderStyle.Height = 36;
+            dgvDshd.ThemeStyle.ReadOnly = true;
+            dgvDshd.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDshd.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDshd.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvDshd.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvDshd.ThemeStyle.RowsStyle.Height = 25;
+            dgvDshd.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvDshd.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvDshd.CellClick += dgvDshd_CellClick;
             // 
             // MaCT
             // 
-            MaCT.Text = "Mã công ty";
-            MaCT.Width = 100;
+            MaCT.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            MaCT.Frozen = true;
+            MaCT.HeaderText = "Mã công ty";
+            MaCT.Name = "MaCT";
+            MaCT.ReadOnly = true;
+            MaCT.Width = 86;
             // 
             // TenCT
             // 
-            TenCT.Text = "Tên công ty";
-            TenCT.Width = 170;
+            TenCT.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            TenCT.Frozen = true;
+            TenCT.HeaderText = "Tên công ty";
+            TenCT.Name = "TenCT";
+            TenCT.ReadOnly = true;
+            TenCT.Width = 89;
             // 
             // KyHieuCT
             // 
-            KyHieuCT.Text = "Ký hiệu công ty";
-            KyHieuCT.Width = 120;
+            KyHieuCT.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            KyHieuCT.Frozen = true;
+            KyHieuCT.HeaderText = "Ký hiệu công ty";
+            KyHieuCT.Name = "KyHieuCT";
+            KyHieuCT.ReadOnly = true;
+            KyHieuCT.Width = 110;
             // 
-            // NgayKyHD
+            // NgayHD
             // 
-            NgayKyHD.Text = "Ngày ký hợp đồng";
-            NgayKyHD.Width = 150;
+            NgayHD.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            NgayHD.Frozen = true;
+            NgayHD.HeaderText = "Ngày ký hợp đồng";
+            NgayHD.Name = "NgayHD";
+            NgayHD.ReadOnly = true;
+            NgayHD.Width = 109;
             // 
             // TenDaiDien
             // 
-            TenDaiDien.Text = "Tên người đại diện";
-            TenDaiDien.Width = 140;
+            TenDaiDien.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            TenDaiDien.Frozen = true;
+            TenDaiDien.HeaderText = "Tên người đại diện";
+            TenDaiDien.Name = "TenDaiDien";
+            TenDaiDien.ReadOnly = true;
+            TenDaiDien.Width = 116;
             // 
-            // SDT
+            // Sdt
             // 
-            SDT.Text = "Số điện thoại";
-            SDT.TextAlign = HorizontalAlignment.Center;
-            SDT.Width = 120;
+            Sdt.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Sdt.Frozen = true;
+            Sdt.HeaderText = "Số điện thoại";
+            Sdt.Name = "Sdt";
+            Sdt.ReadOnly = true;
+            Sdt.Width = 109;
             // 
             // DiaChi
             // 
-            DiaChi.Text = "Địa chỉ";
-            DiaChi.Width = 320;
+            DiaChi.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            DiaChi.Frozen = true;
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
+            DiaChi.Width = 57;
+            // 
+            // btnDel
+            // 
+            btnDel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDel.Location = new Point(77, 32);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(66, 23);
+            btnDel.TabIndex = 23;
+            btnDel.Text = "Xóa";
+            btnDel.UseVisualStyleBackColor = true;
+            btnDel.Click += btnDel_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnSearch);
+            panel1.Controls.Add(btnDel);
+            panel1.Controls.Add(txtSearch);
+            panel1.Controls.Add(btnEdit);
+            panel1.Controls.Add(btnInsert);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(957, 67);
+            panel1.TabIndex = 25;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSearch.Location = new Point(803, 24);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 26;
+            btnSearch.Text = "Tìm kiếm";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtSearch.Location = new Point(634, 24);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Tìm kiếm";
+            txtSearch.Size = new Size(163, 23);
+            txtSearch.TabIndex = 25;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // fDSHD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(584, 420);
-            Controls.Add(lvDSHD);
+            ClientSize = new Size(957, 420);
+            Controls.Add(dgvDshd);
+            Controls.Add(panel1);
             Controls.Add(panel2);
-            Controls.Add(textBox1);
-            Controls.Add(button8);
-            Controls.Add(button7);
             FormBorderStyle = FormBorderStyle.None;
             Name = "fDSHD";
             Text = "CM";
+            Load += fDSHD_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDshd).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -212,22 +357,26 @@
         private Button button4;
         private Button button3;
         private Button button2;
-        private Button button1;
-        private TextBox textBox1;
-        private Button button8;
-        private Button button7;
-        private TextBox textBox2;
-        private Button button11;
-        private Button button10;
-        private Button button9;
+        private Button btnLastPage;
+        private Button btnInsert;
+        private Button btnEdit;
+        private TextBox txtPage;
+        private Button btnPrevPage;
+        private Button btnNextPage;
+        private Button btnFirstPage;
         private Panel panel2;
-        private ListView lvDSHD;
-        private ColumnHeader MaCT;
-        private ColumnHeader TenCT;
-        private ColumnHeader KyHieuCT;
-        private ColumnHeader NgayKyHD;
-        private ColumnHeader TenDaiDien;
-        private ColumnHeader SDT;
-        private ColumnHeader DiaChi;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvDshd;
+        private Button btnDel;
+        private DataGridViewTextBoxColumn MaCT;
+        private DataGridViewTextBoxColumn TenCT;
+        private DataGridViewTextBoxColumn KyHieuCT;
+        private DataGridViewTextBoxColumn NgayHD;
+        private DataGridViewTextBoxColumn TenDaiDien;
+        private DataGridViewTextBoxColumn Sdt;
+        private DataGridViewTextBoxColumn DiaChi;
+        private Panel panel1;
+        private Button btnSearch;
+        private TextBox txtSearch;
+        private Label labelPage;
     }
 }

@@ -41,7 +41,6 @@
             panelLogin = new Guna.UI2.WinForms.Guna2Panel();
             btnCircle = new Guna.UI2.WinForms.Guna2CircleButton();
             labelLogin = new Label();
-            linkLabelForgetPassword = new LinkLabel();
             btnLogin = new Guna.UI2.WinForms.Guna2GradientButton();
             labelError = new Label();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -61,7 +60,6 @@
             panelLogin.BorderRadius = 295;
             panelLogin.Controls.Add(btnCircle);
             panelLogin.Controls.Add(labelLogin);
-            panelLogin.Controls.Add(linkLabelForgetPassword);
             panelLogin.Controls.Add(btnLogin);
             panelLogin.Controls.Add(labelError);
             panelLogin.Controls.Add(txtPassword);
@@ -104,16 +102,6 @@
             labelLogin.Size = new Size(59, 25);
             labelLogin.TabIndex = 25;
             labelLogin.Text = "Login";
-            // 
-            // linkLabelForgetPassword
-            // 
-            linkLabelForgetPassword.AutoSize = true;
-            linkLabelForgetPassword.Location = new Point(254, 523);
-            linkLabelForgetPassword.Name = "linkLabelForgetPassword";
-            linkLabelForgetPassword.Size = new Size(89, 15);
-            linkLabelForgetPassword.TabIndex = 24;
-            linkLabelForgetPassword.TabStop = true;
-            linkLabelForgetPassword.Text = "Quên mật khẩu";
             // 
             // btnLogin
             // 
@@ -161,7 +149,7 @@
             txtPassword.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             txtPassword.BorderThickness = 0;
             txtPassword.CustomizableEdges = customizableEdges4;
-            txtPassword.DefaultText = "";
+            txtPassword.DefaultText = "1";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -193,7 +181,7 @@
             txtUsername.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             txtUsername.BorderThickness = 0;
             txtUsername.CustomizableEdges = customizableEdges6;
-            txtUsername.DefaultText = "";
+            txtUsername.DefaultText = "ngocbui2701";
             txtUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtUsername.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -283,7 +271,6 @@
         private Guna.UI2.WinForms.Guna2Panel panelLogin;
         private Guna.UI2.WinForms.Guna2CircleButton btnExit;
         private Label labelLogin;
-        private LinkLabel linkLabelForgetPassword;
         private Label labelError;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
@@ -37,58 +39,75 @@ namespace baocao.DAO
 
             using (SqlConnection connection = new SqlConnection(connStr))
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                if (isStoredProc)
+                try
                 {
-                    command.CommandType = CommandType.StoredProcedure; // Chạy như một PROC
-                }
-
-                if (parameters != null)
-                {
-                    string[] listParams = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listParams)
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (item.Contains('@'))
+                        if (isStoredProc)
                         {
-                            command.Parameters.AddWithValue(item, parameters[i]);
-                            i++;
+                            command.CommandType = CommandType.StoredProcedure;
+                        }
+                        if (parameters != null)
+                        {
+                            SqlCommandBuilder.DeriveParameters(command);
+                            int paramIndex = 0;
+
+                            foreach (SqlParameter param in command.Parameters)
+                            {
+                                if (param.ParameterName != "@RETURN_VALUE")
+                                {
+                                    param.Value = parameters[paramIndex] ?? DBNull.Value;
+                                    paramIndex++;
+                                }
+                            }
+                        }
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(data);
                         }
                     }
                 }
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(data);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Debug.WriteLine($"Lỗi SQL: {ex}");
+                    Console.WriteLine($"Lỗi SQL: {ex}");
+                }
                 connection.Close();
             }
             return data;
         }
 
-        public int ExecuteNonQuery(string query, object[] paremeter)
+        public int ExecuteNonQuery(string query, object[] parameters)
         {
             int data = 0;
             using (SqlConnection connection = new SqlConnection(connStr))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                if (paremeter != null)
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string[] listParemeter = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listParemeter)
+                    if (parameters != null)
                     {
-                        if (item.Contains('@'))
+                        MatchCollection matches = Regex.Matches(query, @"@\w+");
+                        if (matches.Count != parameters.Length)
                         {
-                            command.Parameters.AddWithValue(item, paremeter[i]);
-                            i++;
+                            throw new ArgumentException("Số lượng tham số không khớp với câu lệnh SQL.");
+                        }
+
+                        for (int i = 0; i < matches.Count; i++)
+                        {
+                            string paramName = matches[i].Value;
+                            command.Parameters.AddWithValue(paramName, parameters[i] ?? DBNull.Value);
                         }
                     }
+
+                    data = command.ExecuteNonQuery();
                 }
-                data = command.ExecuteNonQuery();
-                connection.Close();
             }
             return data;
         }
+
         public object ExecuteScalar(string query, object[] paremeter)
         {
             object data = 0;
