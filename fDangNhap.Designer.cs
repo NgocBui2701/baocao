@@ -149,7 +149,7 @@
             txtPassword.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             txtPassword.BorderThickness = 0;
             txtPassword.CustomizableEdges = customizableEdges4;
-            txtPassword.DefaultText = "1";
+            txtPassword.DefaultText = "12345678";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -247,7 +247,7 @@
             panel1.Size = new Size(1386, 788);
             panel1.TabIndex = 11;
             // 
-            // fLogIn
+            // fDangNhap
             // 
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -257,7 +257,7 @@
             ClientSize = new Size(1370, 749);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "fLogIn";
+            Name = "fDangNhap";
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             Load += login_Load;
