@@ -46,7 +46,7 @@ namespace baocao
         }
         void changeAccount(string vai_tro)
         {
-            if (formChild is userProfile child)
+            if (formChild is fTaiKhoan child)
             {
                 child.enableAdmin(vai_tro == "Admin");
             }
@@ -140,33 +140,33 @@ namespace baocao
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
-            openChildForm(new fHome());
+            openChildForm(new fTrangChu());
             buttonControl(btnHome);
         }
         private void btnCM_Click(object sender, EventArgs e)
         {
-            openChildForm(new fDSHD());
+            openChildForm(new fHopDong());
             buttonControl(btnCM);
         }
         private void btnSM_Click(object sender, EventArgs e)
         {
-            openChildForm(new dsbh());
+            openChildForm(new fDonHang());
             buttonControl(btnSM);
         }
         private void btnReports_Click(object sender, EventArgs e)
         {
-            openChildForm(new thongke());
+            openChildForm(new fThongKe());
             buttonControl(btnReports);
         }
         private void btnUP_Click(object sender, EventArgs e)
         {
-            openChildForm(new userProfile());
+            openChildForm(new fTaiKhoan());
             buttonControl(btnUP);
             changeAccount(loginAccount.VaiTro);
         }
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            openChildForm(new setting());
+            openChildForm(new fCaiDat());
             buttonControl(btnSetting);
         }
         private void menuTimer_Tick(object sender, EventArgs e)

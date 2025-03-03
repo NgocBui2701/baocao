@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace baocao
 {
-    public partial class userProfile : Form
+    public partial class fTrangChu : Form
     {
-        public userProfile()
+        public fTrangChu()
         {
             InitializeComponent();
-        }
-        public void enableAdmin(bool isAdmin)
-        {
-            btnAdmin.Enabled = isAdmin;
-        }
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
         }
     }
 }

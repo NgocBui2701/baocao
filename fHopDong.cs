@@ -16,13 +16,13 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace baocao
 {
-    public partial class fDSHD : Form
+    public partial class fHopDong : Form
     {
-        private List<Dshd> fullData = new List<Dshd>();
+        private List<HopDong> fullData = new List<HopDong>();
         private int pageSize = 10;
         private int currentPage = 1;
         private int totalPages = 0;
-        public fDSHD()
+        public fHopDong()
         {
             InitializeComponent();
             loadData();
@@ -31,28 +31,28 @@ namespace baocao
         private void PerformSearch()
         {
             string keyword = txtSearch.Text.Trim();
-            List<Dshd> data = DshdDAO.Instance.searchDshd(keyword);
+            List<HopDong> data = HopDongDAO.Instance.searchHopDong(keyword);
             if (data == null || data.Count == 0)
             {
-                data = new List<Dshd>();
+                data = new List<HopDong>();
             }
-            dgvDshd.DataSource = new BindingList<Dshd>(data);
+            dgvHopDong.DataSource = new BindingList<HopDong>(data);
             totalPages = Math.Max(1, (int)Math.Ceiling((double)data.Count / pageSize));
             currentPage = 1;
             LoadPage(currentPage, data);
         }
         private void loadData()
         {
-            dgvDshd.Columns.Clear();
-            fullData = DshdDAO.Instance.loadData();
+            dgvHopDong.Columns.Clear();
+            fullData = HopDongDAO.Instance.loadData();
             if (fullData == null || fullData.Count == 0)
             {
-                fullData = new List<Dshd>();
+                fullData = new List<HopDong>();
             }
             totalPages = (int)Math.Ceiling((double)fullData.Count / pageSize);
             LoadPage(1, fullData);
         }
-        private void LoadPage(int page, List<Dshd> data = null)
+        private void LoadPage(int page, List<HopDong> data = null)
         {
             if (data != null)
             {
@@ -62,7 +62,7 @@ namespace baocao
             }
             if (fullData == null || fullData.Count == 0)
             {
-                dgvDshd.DataSource = null;
+                dgvHopDong.DataSource = null;
                 totalPages = 1;
                 currentPage = 1;
                 labelPage.Text = "Trang 0/0";
@@ -74,30 +74,30 @@ namespace baocao
             currentPage = Math.Max(1, Math.Min(page, totalPages));
             int start = (currentPage - 1) * pageSize;
             var pageData = fullData.Skip(start).Take(pageSize).ToList();
-            dgvDshd.DataSource = new BindingList<Dshd>(pageData);
-            dgvDshd.Columns["MaHD"].HeaderText = "Mã hợp đồng";
-            dgvDshd.Columns["MaCT"].HeaderText = "Mã công ty";
-            dgvDshd.Columns["TenCT"].HeaderText = "Tên công ty";
-            dgvDshd.Columns["KyHieuCT"].HeaderText = "Ký hiệu công ty";
-            dgvDshd.Columns["NgayHD"].HeaderText = "Ngày ký hợp đồng";
-            dgvDshd.Columns["TenDaiDien"].HeaderText = "Tên người đại diện";
-            dgvDshd.Columns["Sdt"].HeaderText = "Số điện thoại";
-            dgvDshd.Columns["DiaChi"].HeaderText = "Địa chỉ";
-            dgvDshd.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvHopDong.DataSource = new BindingList<HopDong>(pageData);
+            dgvHopDong.Columns["MaHD"].HeaderText = "Mã hợp đồng";
+            dgvHopDong.Columns["MaCT"].HeaderText = "Mã công ty";
+            dgvHopDong.Columns["TenCT"].HeaderText = "Tên công ty";
+            dgvHopDong.Columns["KyHieuCT"].HeaderText = "Ký hiệu công ty";
+            dgvHopDong.Columns["NgayHD"].HeaderText = "Ngày ký hợp đồng";
+            dgvHopDong.Columns["TenDaiDien"].HeaderText = "Tên người đại diện";
+            dgvHopDong.Columns["Sdt"].HeaderText = "Số điện thoại";
+            dgvHopDong.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgvHopDong.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             labelPage.Text = $"Trang {currentPage}/{totalPages}";
             btnFirstPage.Visible = btnPrevPage.Visible = (currentPage > 1);
             btnNextPage.Visible = btnLastPage.Visible = (currentPage < totalPages);
         }
         #endregion
         #region Events
-        private void fDSHD_Load(object sender, EventArgs e)
+        private void fHopDong_Load(object sender, EventArgs e)
         {
             btnEdit.Visible = false;
             btnDel.Visible = false;
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            fDSHDEdit form = new fDSHDEdit(null);
+            fHopDongEdit form = new fHopDongEdit(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 loadData();
@@ -105,11 +105,11 @@ namespace baocao
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvDshd.SelectedRows.Count > 0)
+            if (dgvHopDong.SelectedRows.Count > 0)
             {
-                int index = dgvDshd.SelectedRows[0].Index;
-                Dshd selected = (Dshd)dgvDshd.Rows[index].DataBoundItem;
-                fDSHDEdit form = new fDSHDEdit(selected);
+                int index = dgvHopDong.SelectedRows[0].Index;
+                HopDong selected = (HopDong)dgvHopDong.Rows[index].DataBoundItem;
+                fHopDongEdit form = new fHopDongEdit(selected);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     loadData();
@@ -118,13 +118,13 @@ namespace baocao
         }
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (dgvDshd.SelectedRows.Count > 0)
+            if (dgvHopDong.SelectedRows.Count > 0)
             {
-                int index = dgvDshd.SelectedRows[0].Index;
-                Dshd selected = (Dshd)dgvDshd.Rows[index].DataBoundItem;
+                int index = dgvHopDong.SelectedRows[0].Index;
+                HopDong selected = (HopDong)dgvHopDong.Rows[index].DataBoundItem;
                 if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (DshdDAO.Instance.deleteDshd(selected.MaHD))
+                    if (HopDongDAO.Instance.deleteHopDong(selected.MaHD))
                     {
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadData();
@@ -137,7 +137,7 @@ namespace baocao
 
             }
         }
-        private void dgvDshd_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvHopDong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {

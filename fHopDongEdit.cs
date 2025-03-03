@@ -4,24 +4,24 @@ using System.Globalization;
 
 namespace baocao
 {
-    public partial class fDSHDEdit : Form
+    public partial class fHopDongEdit : Form
     {
         private bool isEdit = false;
-        private Dshd curr = null;
-        public fDSHDEdit(Dshd dshd = null)
+        private HopDong curr = null;
+        public fHopDongEdit(HopDong HopDong = null)
         {
             InitializeComponent();
-            if (dshd != null)
+            if (HopDong != null)
             {
                 isEdit = true;
-                curr = dshd;
+                curr = HopDong;
                 loadData();
             }
         }
         #region Methods
-        private Dshd getFormData()
+        private HopDong getFormData()
         {
-            return new Dshd(
+            return new HopDong(
                 txtMaHD.Text.Trim(),
                 txtMaCT.Text.Trim(),
                 txtTenCT.Text.Trim(),
@@ -45,7 +45,7 @@ namespace baocao
             txtMaCT.Enabled = false;
             txtMaHD.Enabled = false;
         }
-        private bool validate(Dshd data, out string formattedDate)
+        private bool validate(HopDong data, out string formattedDate)
         {
             if (string.IsNullOrEmpty(data.MaHD) || string.IsNullOrEmpty(data.MaCT) || string.IsNullOrEmpty(data.TenCT) || string.IsNullOrEmpty(data.KyHieuCT) || string.IsNullOrEmpty(data.NgayHD) || string.IsNullOrEmpty(data.TenDaiDien) || string.IsNullOrEmpty(data.Sdt) || string.IsNullOrEmpty(data.DiaChi))
             {
@@ -66,7 +66,7 @@ namespace baocao
         }
         private bool saveData()
         {
-            Dshd data = getFormData();
+            HopDong data = getFormData();
             if (!validate(data, out string formattedDate))
             {
                 return false;
@@ -74,11 +74,11 @@ namespace baocao
             bool success;
             if (isEdit)
             {
-                success = DshdDAO.Instance.updateDshd(data.MaHD, data.MaCT, data.TenCT, data.KyHieuCT, formattedDate, data.TenDaiDien, data.Sdt, data.DiaChi);
+                success = HopDongDAO.Instance.updateHopDong(data.MaHD, data.MaCT, data.TenCT, data.KyHieuCT, formattedDate, data.TenDaiDien, data.Sdt, data.DiaChi);
             }
             else
             {
-                success = DshdDAO.Instance.insertDshd(data.MaHD, data.MaCT, data.TenCT, data.KyHieuCT, formattedDate, data.TenDaiDien, data.Sdt, data.DiaChi);
+                success = HopDongDAO.Instance.insertHopDong(data.MaHD, data.MaCT, data.TenCT, data.KyHieuCT, formattedDate, data.TenDaiDien, data.Sdt, data.DiaChi);
             }
             if (success)
             {

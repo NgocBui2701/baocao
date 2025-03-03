@@ -11,34 +11,34 @@ using Microsoft.VisualBasic.Devices;
 
 namespace baocao.DAO
 {
-    public class DshdDAO
+    public class HopDongDAO
     {
-        private static DshdDAO instance;
-        public static DshdDAO Instance
+        private static HopDongDAO instance;
+        public static HopDongDAO Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new DshdDAO();
-                return DshdDAO.instance;
+                    instance = new HopDongDAO();
+                return HopDongDAO.instance;
             }
             private set
             {
-                DshdDAO.instance = value;
+                HopDongDAO.instance = value;
             }
         }
-        private DshdDAO() { }
-        public List<Dshd> loadData()
+        private HopDongDAO() { }
+        public List<HopDong> loadData()
         {
-            List<Dshd> list = new List<Dshd>();
-            string query = "USP_GetDshdList";
+            List<HopDong> list = new List<HopDong>();
+            string query = "USP_GetHopDongList";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { 100 }, true);
             foreach (DataRow row in data.Rows)
             {
                 try
                 {
-                    Dshd dshd = new Dshd(row);
-                    list.Add(dshd);
+                    HopDong HopDong = new HopDong(row);
+                    list.Add(HopDong);
                 }
                 catch (Exception ex)
                 {
@@ -47,10 +47,10 @@ namespace baocao.DAO
             }
             return list;
         }
-        public List<Dshd> searchDshd(string keyword)
+        public List<HopDong> searchHopDong(string keyword)
         {
-            List<Dshd> list = new List<Dshd>();
-            string query = "USP_SearchDshd";
+            List<HopDong> list = new List<HopDong>();
+            string query = "USP_SearchHopDong";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { keyword }, true);
 
@@ -58,8 +58,8 @@ namespace baocao.DAO
             {
                 try
                 {
-                    Dshd dshd = new Dshd(row);
-                    list.Add(dshd);
+                    HopDong HopDong = new HopDong(row);
+                    list.Add(HopDong);
                 }
                 catch (Exception ex)
                 {
@@ -70,23 +70,23 @@ namespace baocao.DAO
             }
             return list;
         }
-        public bool insertDshd(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public bool insertHopDong(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
         {
-            string query = "EXEC USP_InsertDshd @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
+            string query = "EXEC USP_InsertHopDong @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, tenCT, kyHieuCT, ngayHD, tenDaiDien, sdt, diaChi });
             loadData();
             return result < 0;
         }
-        public bool updateDshd(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public bool updateHopDong(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
         {
-            string query = "EXEC USP_UpdateDshd @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
+            string query = "EXEC USP_UpdateHopDong @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, tenCT, kyHieuCT, ngayHD, tenDaiDien, sdt, diaChi });
             loadData();
             return result < 0;
         }
-        public bool deleteDshd(string maHD)
+        public bool deleteHopDong(string maHD)
         {
-            string query = "EXEC USP_DeleteDshd @MaHD";
+            string query = "EXEC USP_DeleteHopDong @MaHD";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD });
             loadData();
             return result < 0;

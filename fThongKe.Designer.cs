@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class thongke
+    partial class fThongKe
     {
         /// <summary>
         /// Required designer variable.

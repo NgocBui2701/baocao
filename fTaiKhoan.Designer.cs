@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class userProfile
+    partial class fTaiKhoan
     {
         /// <summary>
         /// Required designer variable.

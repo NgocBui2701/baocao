@@ -7,9 +7,9 @@ using System.Data;
 
 namespace baocao.DTO
 {
-    public class Dshd
+    public class HopDong
     {
-        public Dshd(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public HopDong(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
         {
             this.MaHD = maHD;
             this.MaCT = maCT;
@@ -20,7 +20,7 @@ namespace baocao.DTO
             this.Sdt = sdt;
             this.DiaChi = diaChi;
         }
-        public Dshd(DataRow row)
+        public HopDong(DataRow row)
         {
             if (!row.Table.Columns.Contains("MaHD"))
             {

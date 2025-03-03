@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class fDSHDEdit
+    partial class fHopDongEdit
     {
         /// <summary>
         /// Required designer variable.

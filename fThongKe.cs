@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace baocao
 {
-    public partial class fHome : Form
+    public partial class fThongKe : Form
     {
-        public fHome()
+        public fThongKe()
         {
             InitializeComponent();
         }

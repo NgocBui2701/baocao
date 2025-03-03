@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class fDSHD
+    partial class fHopDong
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             panel2 = new Panel();
             labelPage = new Label();
             btnLastPage = new Button();
-            dgvDshd = new Guna.UI2.WinForms.Guna2DataGridView();
+            dgvHopDong = new Guna.UI2.WinForms.Guna2DataGridView();
             MaCT = new DataGridViewTextBoxColumn();
             TenCT = new DataGridViewTextBoxColumn();
             KyHieuCT = new DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             btnSearch = new Button();
             txtSearch = new TextBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDshd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHopDong).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -157,16 +157,16 @@
             btnLastPage.UseVisualStyleBackColor = true;
             btnLastPage.Click += btnLastPage_Click;
             // 
-            // dgvDshd
+            // dgvHopDong
             // 
-            dgvDshd.AllowUserToAddRows = false;
-            dgvDshd.AllowUserToDeleteRows = false;
-            dgvDshd.AllowUserToResizeColumns = false;
-            dgvDshd.AllowUserToResizeRows = false;
+            dgvHopDong.AllowUserToAddRows = false;
+            dgvHopDong.AllowUserToDeleteRows = false;
+            dgvHopDong.AllowUserToResizeColumns = false;
+            dgvHopDong.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
-            dgvDshd.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDshd.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvDshd.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvHopDong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHopDong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvHopDong.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -175,9 +175,9 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvDshd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvDshd.ColumnHeadersHeight = 36;
-            dgvDshd.Columns.AddRange(new DataGridViewColumn[] { MaCT, TenCT, KyHieuCT, NgayHD, TenDaiDien, Sdt, DiaChi });
+            dgvHopDong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvHopDong.ColumnHeadersHeight = 36;
+            dgvHopDong.Columns.AddRange(new DataGridViewColumn[] { MaCT, TenCT, KyHieuCT, NgayHD, TenDaiDien, Sdt, DiaChi });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -185,39 +185,39 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvDshd.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvDshd.Dock = DockStyle.Fill;
-            dgvDshd.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDshd.Location = new Point(0, 67);
-            dgvDshd.MultiSelect = false;
-            dgvDshd.Name = "dgvDshd";
-            dgvDshd.ReadOnly = true;
-            dgvDshd.RowHeadersVisible = false;
-            dgvDshd.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvDshd.Size = new Size(957, 303);
-            dgvDshd.TabIndex = 22;
-            dgvDshd.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dgvDshd.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dgvDshd.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dgvDshd.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dgvDshd.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dgvDshd.ThemeStyle.BackColor = Color.White;
-            dgvDshd.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDshd.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvDshd.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvDshd.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            dgvDshd.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDshd.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvDshd.ThemeStyle.HeaderStyle.Height = 36;
-            dgvDshd.ThemeStyle.ReadOnly = true;
-            dgvDshd.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgvDshd.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDshd.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dgvDshd.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dgvDshd.ThemeStyle.RowsStyle.Height = 25;
-            dgvDshd.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvDshd.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dgvDshd.CellClick += dgvDshd_CellClick;
+            dgvHopDong.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvHopDong.Dock = DockStyle.Fill;
+            dgvHopDong.GridColor = Color.FromArgb(231, 229, 255);
+            dgvHopDong.Location = new Point(0, 67);
+            dgvHopDong.MultiSelect = false;
+            dgvHopDong.Name = "dgvHopDong";
+            dgvHopDong.ReadOnly = true;
+            dgvHopDong.RowHeadersVisible = false;
+            dgvHopDong.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvHopDong.Size = new Size(957, 303);
+            dgvHopDong.TabIndex = 22;
+            dgvHopDong.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvHopDong.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvHopDong.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvHopDong.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvHopDong.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvHopDong.ThemeStyle.BackColor = Color.White;
+            dgvHopDong.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvHopDong.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvHopDong.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvHopDong.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvHopDong.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvHopDong.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvHopDong.ThemeStyle.HeaderStyle.Height = 36;
+            dgvHopDong.ThemeStyle.ReadOnly = true;
+            dgvHopDong.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvHopDong.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvHopDong.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvHopDong.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvHopDong.ThemeStyle.RowsStyle.Height = 25;
+            dgvHopDong.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvHopDong.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvHopDong.CellClick += dgvHopDong_CellClick;
             // 
             // MaCT
             // 
@@ -328,22 +328,22 @@
             txtSearch.TextChanged += txtSearch_TextChanged;
             txtSearch.KeyDown += txtSearch_KeyDown;
             // 
-            // fDSHD
+            // fHopDong
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(957, 420);
-            Controls.Add(dgvDshd);
+            Controls.Add(dgvHopDong);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "fDSHD";
+            Name = "fHopDong";
             Text = "CM";
-            Load += fDSHD_Load;
+            Load += fHopDong_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDshd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHopDong).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -365,7 +365,7 @@
         private Button btnNextPage;
         private Button btnFirstPage;
         private Panel panel2;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDshd;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvHopDong;
         private Button btnDel;
         private DataGridViewTextBoxColumn MaCT;
         private DataGridViewTextBoxColumn TenCT;

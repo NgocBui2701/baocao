@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class fLogIn
+    partial class fDangNhap
     {
         /// <summary>
         ///  Required designer variable.

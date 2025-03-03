@@ -1,6 +1,6 @@
 ﻿namespace baocao
 {
-    partial class setting
+    partial class fCaiDat
     {
         /// <summary>
         /// Required designer variable.

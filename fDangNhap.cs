@@ -5,9 +5,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace baocao
 {
-    public partial class fLogIn : Form
+    public partial class fDangNhap : Form
     {
-        public fLogIn()
+        public fDangNhap()
         {
             InitializeComponent();
         }

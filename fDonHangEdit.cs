@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace baocao
 {
-    public partial class thongke : Form
+    public partial class fDonHangEdit : Form
     {
-        public thongke()
+        public fDonHangEdit()
         {
             InitializeComponent();
         }
