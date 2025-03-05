@@ -57,8 +57,8 @@ namespace baocao
             if (data != null)
             {
                 fullData = data;
-                totalPages = (int)Math.Ceiling((double)fullData.Count / pageSize); 
-                currentPage = 1; 
+                totalPages = (int)Math.Ceiling((double)fullData.Count / pageSize);
+                currentPage = 1;
             }
             if (fullData == null || fullData.Count == 0)
             {
@@ -70,7 +70,7 @@ namespace baocao
                 btnNextPage.Visible = btnLastPage.Visible = false;
                 return;
             }
-            totalPages = Math.Max(1, (int)Math.Ceiling((double)fullData.Count / pageSize)); 
+            totalPages = Math.Max(1, (int)Math.Ceiling((double)fullData.Count / pageSize));
             currentPage = Math.Max(1, Math.Min(page, totalPages));
             int start = (currentPage - 1) * pageSize;
             var pageData = fullData.Skip(start).Take(pageSize).ToList();
@@ -203,5 +203,6 @@ namespace baocao
             }
         }
         #endregion
+
     }
 }

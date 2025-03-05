@@ -44,5 +44,11 @@ namespace baocao.DAO
             }
             return null;
         }
+        public bool UpdateAccount(string username, string id, string name, string email, string phone, string password, string newPassword)
+        {
+            string query = "EXEC USP_UpdateAccount @username, @ID, @name, @email, @sdt, @password, @newPassword";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {username, id, name, email, phone, password, newPassword });
+            return result > 0;
+        }
     }
 }

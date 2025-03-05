@@ -80,8 +80,8 @@
             // 
             // txtPage
             // 
-            txtPage.Anchor = AnchorStyles.None;
-            txtPage.Location = new Point(694, 12);
+            txtPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            txtPage.Location = new Point(780, 15);
             txtPage.Name = "txtPage";
             txtPage.PlaceholderText = "...";
             txtPage.Size = new Size(40, 23);
@@ -92,8 +92,8 @@
             // 
             // btnPrevPage
             // 
-            btnPrevPage.Anchor = AnchorStyles.None;
-            btnPrevPage.Location = new Point(649, 12);
+            btnPrevPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPrevPage.Location = new Point(735, 15);
             btnPrevPage.Name = "btnPrevPage";
             btnPrevPage.Size = new Size(38, 23);
             btnPrevPage.TabIndex = 18;
@@ -103,8 +103,8 @@
             // 
             // btnNextPage
             // 
-            btnNextPage.Anchor = AnchorStyles.None;
-            btnNextPage.Location = new Point(740, 12);
+            btnNextPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnNextPage.Location = new Point(826, 15);
             btnNextPage.Name = "btnNextPage";
             btnNextPage.Size = new Size(38, 23);
             btnNextPage.TabIndex = 17;
@@ -114,8 +114,8 @@
             // 
             // btnFirstPage
             // 
-            btnFirstPage.Anchor = AnchorStyles.None;
-            btnFirstPage.Location = new Point(572, 12);
+            btnFirstPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFirstPage.Location = new Point(658, 15);
             btnFirstPage.Name = "btnFirstPage";
             btnFirstPage.Size = new Size(71, 23);
             btnFirstPage.TabIndex = 16;
@@ -139,8 +139,9 @@
             // 
             // labelPage
             // 
+            labelPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelPage.AutoSize = true;
-            labelPage.Location = new Point(436, 15);
+            labelPage.Location = new Point(12, 26);
             labelPage.Name = "labelPage";
             labelPage.Size = new Size(36, 15);
             labelPage.TabIndex = 21;
@@ -148,8 +149,8 @@
             // 
             // btnLastPage
             // 
-            btnLastPage.Anchor = AnchorStyles.None;
-            btnLastPage.Location = new Point(784, 12);
+            btnLastPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnLastPage.Location = new Point(870, 15);
             btnLastPage.Name = "btnLastPage";
             btnLastPage.Size = new Size(75, 23);
             btnLastPage.TabIndex = 20;

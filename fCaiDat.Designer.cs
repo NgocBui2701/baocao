@@ -82,72 +82,90 @@
             // 
             // button6
             // 
+            button6.BackColor = Color.DarkOrange;
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button6.ForeColor = Color.White;
             button6.Location = new Point(22, 329);
             button6.Name = "button6";
             button6.Size = new Size(223, 23);
             button6.TabIndex = 13;
             button6.Text = "Chính sách bảo mật";
             button6.TextAlign = ContentAlignment.MiddleLeft;
-            button6.UseVisualStyleBackColor = true;
+            button6.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
+            button5.BackColor = Color.DarkOrange;
+            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button5.ForeColor = Color.White;
             button5.Location = new Point(22, 283);
             button5.Name = "button5";
             button5.Size = new Size(223, 23);
             button5.TabIndex = 12;
             button5.Text = "Thông tin phiên bản và cập nhật";
             button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
+            button4.BackColor = Color.DarkOrange;
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
             button4.Location = new Point(22, 224);
             button4.Name = "button4";
             button4.Size = new Size(223, 23);
             button4.TabIndex = 11;
             button4.Text = "Hệ thống";
             button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            button3.BackColor = Color.DarkOrange;
+            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
             button3.Location = new Point(22, 167);
             button3.Name = "button3";
             button3.Size = new Size(223, 23);
             button3.TabIndex = 10;
             button3.Text = "Dữ liệu";
             button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            button2.BackColor = Color.DarkOrange;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
             button2.Location = new Point(22, 103);
             button2.Name = "button2";
             button2.Size = new Size(223, 23);
             button2.TabIndex = 9;
             button2.Text = "Phương thức thanh toán";
             button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            button1.BackColor = Color.DarkOrange;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
             button1.Location = new Point(22, 40);
             button1.Name = "button1";
             button1.Size = new Size(223, 23);
             button1.TabIndex = 8;
             button1.Text = "Cài đặt đơn hàng";
             button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
-            // setting
+            // fCaiDat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panelSetting);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "setting";
+            Name = "fCaiDat";
             Text = "Form1";
             Load += setting_Load;
             panelSetting.ResumeLayout(false);

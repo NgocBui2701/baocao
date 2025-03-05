@@ -40,9 +40,6 @@ namespace baocao
             loginAccount = value;
             MessageBox.Show($"Vai trò của user: {loginAccount.VaiTro}");
             changeAccount(loginAccount.VaiTro);
-            btnCM.Enabled = loginAccount.VaiTro == "Admin";
-            btnReports.Enabled = loginAccount.VaiTro == "Admin";
-            btnSM.Enabled = loginAccount.VaiTro == "Admin";
         }
         void changeAccount(string vai_tro)
         {
@@ -159,8 +156,10 @@ namespace baocao
             buttonControl(btnReports);
         }
         private void btnUP_Click(object sender, EventArgs e)
+
         {
-            openChildForm(new fTaiKhoan());
+            fTaiKhoan acc = new fTaiKhoan(loginAccount);
+            openChildForm(acc);
             buttonControl(btnUP);
             changeAccount(loginAccount.VaiTro);
         }
