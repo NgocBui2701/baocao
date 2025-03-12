@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelSetting = new Panel();
-            darkMode = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            button6 = new Button();
+            btnDarkMode = new FontAwesome.Sharp.IconButton();
+            label2 = new Label();
+            label1 = new Label();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
-            button2 = new Button();
             button1 = new Button();
+            btnTaiKhoan = new FontAwesome.Sharp.IconButton();
             panelSetting.SuspendLayout();
             SuspendLayout();
             // 
             // panelSetting
             // 
             panelSetting.BackColor = Color.Transparent;
-            panelSetting.Controls.Add(darkMode);
-            panelSetting.Controls.Add(button6);
+            panelSetting.Controls.Add(btnTaiKhoan);
+            panelSetting.Controls.Add(btnDarkMode);
+            panelSetting.Controls.Add(label2);
+            panelSetting.Controls.Add(label1);
             panelSetting.Controls.Add(button5);
             panelSetting.Controls.Add(button4);
             panelSetting.Controls.Add(button3);
-            panelSetting.Controls.Add(button2);
             panelSetting.Controls.Add(button1);
             panelSetting.Dock = DockStyle.Fill;
             panelSetting.ForeColor = Color.Transparent;
@@ -58,40 +58,48 @@
             panelSetting.Size = new Size(800, 450);
             panelSetting.TabIndex = 0;
             // 
-            // darkMode
+            // btnDarkMode
             // 
-            darkMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            darkMode.BackColor = Color.Transparent;
-            darkMode.CheckedState.BorderColor = Color.LawnGreen;
-            darkMode.CheckedState.BorderThickness = 2;
-            darkMode.CheckedState.FillColor = Color.Transparent;
-            darkMode.CheckedState.InnerBorderColor = Color.Transparent;
-            darkMode.CheckedState.InnerColor = Color.LawnGreen;
-            darkMode.CustomizableEdges = customizableEdges1;
-            darkMode.Location = new Point(705, 43);
-            darkMode.Name = "darkMode";
-            darkMode.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            darkMode.Size = new Size(35, 20);
-            darkMode.TabIndex = 14;
-            darkMode.UncheckedState.BorderColor = Color.DarkOrange;
-            darkMode.UncheckedState.BorderThickness = 2;
-            darkMode.UncheckedState.FillColor = Color.Transparent;
-            darkMode.UncheckedState.InnerBorderColor = Color.Transparent;
-            darkMode.UncheckedState.InnerColor = Color.DarkOrange;
-            darkMode.CheckedChanged += darkMode_CheckedChanged;
+            btnDarkMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDarkMode.BackColor = Color.White;
+            btnDarkMode.Cursor = Cursors.Hand;
+            btnDarkMode.FlatAppearance.BorderColor = Color.Black;
+            btnDarkMode.FlatAppearance.BorderSize = 0;
+            btnDarkMode.FlatStyle = FlatStyle.Flat;
+            btnDarkMode.IconChar = FontAwesome.Sharp.IconChar.ToggleOff;
+            btnDarkMode.IconColor = Color.DarkOrange;
+            btnDarkMode.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDarkMode.IconSize = 40;
+            btnDarkMode.Location = new Point(748, 12);
+            btnDarkMode.Name = "btnDarkMode";
+            btnDarkMode.Size = new Size(40, 40);
+            btnDarkMode.TabIndex = 17;
+            btnDarkMode.UseVisualStyleBackColor = true;
+            btnDarkMode.Click += btnDarkMode_Click;
+            btnDarkMode.MouseDown += btnDarkMode_MouseDown;
+            btnDarkMode.MouseEnter += btnDarkMode_MouseEnter;
+            btnDarkMode.MouseLeave += btnDarkMode_MouseEnter;
+            btnDarkMode.MouseMove += btnDarkMode_MouseDown;
             // 
-            // button6
+            // label2
             // 
-            button6.BackColor = Color.DarkOrange;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(22, 329);
-            button6.Name = "button6";
-            button6.Size = new Size(223, 23);
-            button6.TabIndex = 13;
-            button6.Text = "Chính sách bảo mật";
-            button6.TextAlign = ContentAlignment.MiddleLeft;
-            button6.UseVisualStyleBackColor = false;
+            label2.AutoSize = true;
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(283, 171);
+            label2.Name = "label2";
+            label2.Size = new Size(146, 15);
+            label2.TabIndex = 16;
+            label2.Text = "Sao lưu/ khôi phục dữ liệu";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(283, 44);
+            label1.Name = "label1";
+            label1.Size = new Size(167, 15);
+            label1.TabIndex = 15;
+            label1.Text = "Thông báo cập nhật đơn hàng";
             // 
             // button5
             // 
@@ -132,19 +140,6 @@
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             // 
-            // button2
-            // 
-            button2.BackColor = Color.DarkOrange;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(22, 103);
-            button2.Name = "button2";
-            button2.Size = new Size(223, 23);
-            button2.TabIndex = 9;
-            button2.Text = "Phương thức thanh toán";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = false;
-            // 
             // button1
             // 
             button1.BackColor = Color.DarkOrange;
@@ -158,6 +153,30 @@
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
             // 
+            // btnTaiKhoan
+            // 
+            btnTaiKhoan.BackColor = Color.DarkOrange;
+            btnTaiKhoan.Cursor = Cursors.Hand;
+            btnTaiKhoan.FlatAppearance.BorderSize = 0;
+            btnTaiKhoan.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnTaiKhoan.FlatStyle = FlatStyle.Flat;
+            btnTaiKhoan.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnTaiKhoan.ForeColor = Color.White;
+            btnTaiKhoan.IconChar = FontAwesome.Sharp.IconChar.Vcard;
+            btnTaiKhoan.IconColor = Color.White;
+            btnTaiKhoan.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnTaiKhoan.IconSize = 40;
+            btnTaiKhoan.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTaiKhoan.Location = new Point(22, 83);
+            btnTaiKhoan.Name = "btnTaiKhoan";
+            btnTaiKhoan.Padding = new Padding(10, 0, 20, 0);
+            btnTaiKhoan.Size = new Size(250, 65);
+            btnTaiKhoan.TabIndex = 18;
+            btnTaiKhoan.Text = "Tài khoản";
+            btnTaiKhoan.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTaiKhoan.UseVisualStyleBackColor = false;
+            btnTaiKhoan.Click += btnTaiKhoan_Click;
+            // 
             // fCaiDat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -166,21 +185,23 @@
             Controls.Add(panelSetting);
             FormBorderStyle = FormBorderStyle.None;
             Name = "fCaiDat";
-            Text = "Form1";
+            Text = "fCaiDat";
             Load += setting_Load;
             panelSetting.ResumeLayout(false);
+            panelSetting.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelSetting;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch darkMode;
-        private Button button6;
         private Button button5;
         private Button button4;
         private Button button3;
-        private Button button2;
         private Button button1;
+        private Label label2;
+        private Label label1;
+        private FontAwesome.Sharp.IconButton btnDarkMode;
+        private FontAwesome.Sharp.IconButton btnTaiKhoan;
     }
 }

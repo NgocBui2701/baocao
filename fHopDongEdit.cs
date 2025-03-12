@@ -112,16 +112,6 @@ namespace baocao
                 this.Close();
             }
         }
-        private void btnExit_MouseEnter(object sender, EventArgs e)
-        {
-            btnExit.FillColor = Color.Red;
-            btnExit.ForeColor = Color.White;
-        }
-        private void btnExit_MouseLeave(object sender, EventArgs e)
-        {
-            btnExit.FillColor = Color.Transparent;
-            btnExit.ForeColor = Color.DarkGray;
-        }
         #endregion
     }
 }

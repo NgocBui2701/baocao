@@ -37,7 +37,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelLogin = new Guna.UI2.WinForms.Guna2Panel();
             btnCircle = new Guna.UI2.WinForms.Guna2CircleButton();
             labelLogin = new Label();
@@ -46,10 +45,10 @@
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             labelTitle = new Label();
-            btnExit = new Guna.UI2.WinForms.Guna2CircleButton();
-            panel1 = new Panel();
+            panelMain = new Panel();
+            btnExit = new FontAwesome.Sharp.IconButton();
             panelLogin.SuspendLayout();
-            panel1.SuspendLayout();
+            panelMain.SuspendLayout();
             SuspendLayout();
             // 
             // panelLogin
@@ -58,6 +57,7 @@
             panelLogin.BackColor = Color.Transparent;
             panelLogin.BackgroundImageLayout = ImageLayout.None;
             panelLogin.BorderRadius = 295;
+            panelLogin.Controls.Add(btnExit);
             panelLogin.Controls.Add(btnCircle);
             panelLogin.Controls.Add(labelLogin);
             panelLogin.Controls.Add(btnLogin);
@@ -66,10 +66,11 @@
             panelLogin.Controls.Add(txtUsername);
             panelLogin.Controls.Add(labelTitle);
             panelLogin.CustomizableEdges = customizableEdges8;
-            panelLogin.Location = new Point(742, 3);
+            panelLogin.Dock = DockStyle.Right;
+            panelLogin.Location = new Point(794, 0);
             panelLogin.Name = "panelLogin";
             panelLogin.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            panelLogin.Size = new Size(592, 782);
+            panelLogin.Size = new Size(592, 788);
             panelLogin.TabIndex = 6;
             // 
             // btnCircle
@@ -97,7 +98,7 @@
             labelLogin.BackColor = Color.Transparent;
             labelLogin.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelLogin.ForeColor = Color.Black;
-            labelLogin.Location = new Point(264, 293);
+            labelLogin.Location = new Point(264, 296);
             labelLogin.Name = "labelLogin";
             labelLogin.Size = new Size(59, 25);
             labelLogin.TabIndex = 25;
@@ -159,7 +160,7 @@
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.ForeColor = Color.Black;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(130, 397);
+            txtPassword.Location = new Point(130, 400);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '●';
             txtPassword.PlaceholderForeColor = SystemColors.ControlDark;
@@ -191,7 +192,7 @@
             txtUsername.Font = new Font("Segoe UI", 9F);
             txtUsername.ForeColor = Color.Black;
             txtUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUsername.Location = new Point(130, 336);
+            txtUsername.Location = new Point(130, 339);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderForeColor = SystemColors.ControlDark;
             txtUsername.PlaceholderText = "Tên Đăng Nhập";
@@ -208,44 +209,37 @@
             labelTitle.BackColor = Color.Transparent;
             labelTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(229, 256);
+            labelTitle.Location = new Point(229, 259);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(127, 37);
             labelTitle.TabIndex = 19;
             labelTitle.Text = "Welcome";
             // 
+            // panelMain
+            // 
+            panelMain.BackgroundImage = Properties.Resources.bg;
+            panelMain.BackgroundImageLayout = ImageLayout.Stretch;
+            panelMain.Controls.Add(panelLogin);
+            panelMain.Location = new Point(0, 0);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(1386, 788);
+            panelMain.TabIndex = 11;
+            // 
             // btnExit
             // 
-            btnExit.Cursor = Cursors.Hand;
-            btnExit.DisabledState.BorderColor = Color.DarkGray;
-            btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnExit.FillColor = Color.Transparent;
-            btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.ForeColor = SystemColors.ControlDark;
-            btnExit.ImageSize = new Size(30, 30);
-            btnExit.Location = new Point(1337, 2);
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnExit.IconColor = Color.DarkOrange;
+            btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnExit.IconSize = 25;
+            btnExit.Location = new Point(548, 3);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            btnExit.Size = new Size(30, 30);
-            btnExit.TabIndex = 0;
-            btnExit.Text = "X";
+            btnExit.Size = new Size(25, 25);
+            btnExit.TabIndex = 7;
+            btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
-            btnExit.MouseEnter += btnExit_MouseEnter;
-            btnExit.MouseLeave += btnExit_MouseLeave;
-            // 
-            // panel1
-            // 
-            panel1.BackgroundImage = Properties.Resources.bg;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(panelLogin);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1386, 788);
-            panel1.TabIndex = 11;
             // 
             // fDangNhap
             // 
@@ -253,9 +247,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            CancelButton = btnExit;
             ClientSize = new Size(1370, 749);
-            Controls.Add(panel1);
+            Controls.Add(panelMain);
             FormBorderStyle = FormBorderStyle.None;
             Name = "fDangNhap";
             StartPosition = FormStartPosition.CenterScreen;
@@ -263,13 +256,12 @@
             Load += login_Load;
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
-            panel1.ResumeLayout(false);
+            panelMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Guna.UI2.WinForms.Guna2Panel panelLogin;
-        private Guna.UI2.WinForms.Guna2CircleButton btnExit;
         private Label labelLogin;
         private Label labelError;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
@@ -277,6 +269,7 @@
         private Label labelTitle;
         private Guna.UI2.WinForms.Guna2GradientButton btnLogin;
         private Guna.UI2.WinForms.Guna2CircleButton btnCircle;
-        private Panel panel1;
+        private Panel panelMain;
+        private FontAwesome.Sharp.IconButton btnExit;
     }
 }

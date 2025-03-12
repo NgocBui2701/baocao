@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using baocao.DAO;
 using baocao.DTO;
+using Guna.UI2.WinForms;
 using Microsoft.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -22,15 +23,20 @@ namespace baocao
         private int pageSize = 10;
         private int currentPage = 1;
         private int totalPages = 0;
+        bool isDarkMode = Properties.Settings.Default.DarkMode;
         public fHopDong()
         {
             InitializeComponent();
-            loadData();
         }
         #region Methods
         private void PerformSearch()
         {
             string keyword = txtSearch.Text.Trim();
+            if (string.IsNullOrEmpty(keyword))
+            {
+                loadData();
+                return;
+            }
             List<HopDong> data = HopDongDAO.Instance.searchHopDong(keyword);
             if (data == null || data.Count == 0)
             {
@@ -54,6 +60,7 @@ namespace baocao
         }
         private void LoadPage(int page, List<HopDong> data = null)
         {
+            ClearManualColumns();
             if (data != null)
             {
                 fullData = data;
@@ -68,6 +75,7 @@ namespace baocao
                 labelPage.Text = "Trang 0/0";
                 btnFirstPage.Visible = btnPrevPage.Visible = false;
                 btnNextPage.Visible = btnLastPage.Visible = false;
+                SetColumnHeaders();
                 return;
             }
             totalPages = Math.Max(1, (int)Math.Ceiling((double)fullData.Count / pageSize));
@@ -87,16 +95,62 @@ namespace baocao
             labelPage.Text = $"Trang {currentPage}/{totalPages}";
             btnFirstPage.Visible = btnPrevPage.Visible = (currentPage > 1);
             btnNextPage.Visible = btnLastPage.Visible = (currentPage < totalPages);
+            AdjustGuna2DataGridViewHeight();
+            dgvHopDong.ClearSelection();
+        }
+        private void SetColumnHeaders()
+        {
+            dgvHopDong.Columns.Add("MaHD", "Mã hợp đồng");
+            dgvHopDong.Columns.Add("MaCT", "Mã công ty");
+            dgvHopDong.Columns.Add("TenCT", "Tên công ty");
+            dgvHopDong.Columns.Add("KyHieuCT", "Ký hiệu công ty");
+            dgvHopDong.Columns.Add("NgayHD", "Ngày ký hợp đồng");
+            dgvHopDong.Columns.Add("TenDaiDien", "Tên người đại diện");
+            dgvHopDong.Columns.Add("Sdt", "Số điện thoại");
+            dgvHopDong.Columns.Add("DiaChi", "Địa chỉ");
+            dgvHopDong.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+        private void ClearManualColumns()
+        {
+            for (int i = dgvHopDong.Columns.Count - 1; i >= 0; i--)
+            {
+                if (!dgvHopDong.Columns[i].IsDataBound)
+                {
+                    dgvHopDong.Columns.RemoveAt(i);
+                }
+            }
+        }
+        private void AdjustGuna2DataGridViewHeight()
+        {
+            int rowCount = dgvHopDong.Rows.Count; 
+            int rowHeight = dgvHopDong.RowTemplate.Height;
+            int headerHeight = dgvHopDong.ColumnHeadersHeight;
+            int newHeight = headerHeight + (rowHeight * rowCount) + 10; 
+            int minHeight = 100; 
+            int maxHeight = 400;  
+            dgvHopDong.Height = Math.Min(Math.Max(newHeight, minHeight), maxHeight);
         }
         #endregion
         #region Events
         private void fHopDong_Load(object sender, EventArgs e)
         {
+            btnDel.Visible = false;
+            btnEdit.Visible = false;
+            loadData();
+            dgvHopDong.BackgroundColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            dgvHopDong.ForeColor = isDarkMode ? Color.White : Color.FromArgb(30, 30, 30);
+            dgvHopDong.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvHopDong.ClearSelection();
+        }
+        private void fHopDong_Click(object sender, EventArgs e)
+        {
+            dgvHopDong.ClearSelection();
             btnEdit.Visible = false;
             btnDel.Visible = false;
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             fHopDongEdit form = new fHopDongEdit(null);
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -139,19 +193,18 @@ namespace baocao
         }
         private void dgvHopDong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                btnDel.Visible = true;
-                btnEdit.Visible = true;
-            }
-            else
-            {
-                btnDel.Visible = false;
-                btnEdit.Visible = false;
-            }
+            btnEdit.Visible = dgvHopDong.SelectedRows.Count > 0;
+            btnDel.Visible = dgvHopDong.SelectedRows.Count > 0;
+        }
+        private void dgvHopDong_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            dgvHopDong.Rows[e.RowIndex].DefaultCellStyle.BackColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            dgvHopDong.Rows[e.RowIndex].DefaultCellStyle.ForeColor = isDarkMode ? Color.White : Color.FromArgb(30, 30, 30);
+            dgvHopDong.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             PerformSearch();
         }
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -163,24 +216,29 @@ namespace baocao
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             PerformSearch();
         }
         private void btnFirstPage_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             LoadPage(1);
         }
         private void btnPrevPage_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             currentPage--;
             LoadPage(currentPage);
         }
         private void btnNextPage_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             currentPage++;
             LoadPage(currentPage);
         }
         private void btnLastPage_Click(object sender, EventArgs e)
         {
+            fHopDong_Click(sender, e);
             LoadPage(totalPages);
         }
         private void txtPage_TextChanged(object sender, EventArgs e)
@@ -202,7 +260,18 @@ namespace baocao
                 txtPage_TextChanged(sender, e);
             }
         }
+        //public void UpdateText(string text)
+        //{
+        //    txtSearch.Text = text;
+        //}
+        //private void btnTranslate_Click(object sender, EventArgs e)
+        //{
+        //    fHopDong_Click(sender, e);
+        //    fAITiengViet formVietnamese = new fAITiengViet(this);
+        //    formVietnamese.Show();
+        //}
         #endregion
+
 
     }
 }

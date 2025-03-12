@@ -54,6 +54,7 @@
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             labelRole = new Label();
             labelUserName = new Label();
+            btnReturn = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -61,16 +62,16 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(btnReturn);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnAdmin);
             panel1.Controls.Add(guna2CircleButton1);
             panel1.Controls.Add(labelRole);
             panel1.Controls.Add(labelUserName);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
+            panel1.Size = new Size(776, 426);
             panel1.TabIndex = 0;
             // 
             // panel2
@@ -96,14 +97,14 @@
             panel2.Controls.Add(labelEmail);
             panel2.Location = new Point(124, 72);
             panel2.Name = "panel2";
-            panel2.Size = new Size(481, 321);
+            panel2.Size = new Size(457, 297);
             panel2.TabIndex = 17;
             // 
             // btnCancel
             // 
             btnCancel.Anchor = AnchorStyles.Top;
             btnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCancel.Location = new Point(322, 274);
+            btnCancel.Location = new Point(310, 274);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(124, 31);
             btnCancel.TabIndex = 16;
@@ -115,7 +116,7 @@
             // 
             btnUpdate.Anchor = AnchorStyles.Top;
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnUpdate.Location = new Point(151, 274);
+            btnUpdate.Location = new Point(139, 274);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(124, 31);
             btnUpdate.TabIndex = 15;
@@ -129,14 +130,14 @@
             txtID.Font = new Font("Segoe UI", 9F);
             txtID.Location = new Point(151, 21);
             txtID.Name = "txtID";
-            txtID.Size = new Size(295, 23);
+            txtID.Size = new Size(271, 23);
             txtID.TabIndex = 2;
             // 
             // btnChangePassword
             // 
             btnChangePassword.Anchor = AnchorStyles.Top;
             btnChangePassword.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnChangePassword.Location = new Point(151, 274);
+            btnChangePassword.Location = new Point(139, 274);
             btnChangePassword.Name = "btnChangePassword";
             btnChangePassword.Size = new Size(124, 31);
             btnChangePassword.TabIndex = 6;
@@ -150,7 +151,7 @@
             txtName.Font = new Font("Segoe UI", 9F);
             txtName.Location = new Point(151, 54);
             txtName.Name = "txtName";
-            txtName.Size = new Size(295, 23);
+            txtName.Size = new Size(271, 23);
             txtName.TabIndex = 3;
             // 
             // txtConfirmPassword
@@ -159,7 +160,7 @@
             txtConfirmPassword.Font = new Font("Segoe UI", 9F);
             txtConfirmPassword.Location = new Point(151, 234);
             txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.Size = new Size(295, 23);
+            txtConfirmPassword.Size = new Size(271, 23);
             txtConfirmPassword.TabIndex = 14;
             txtConfirmPassword.UseSystemPasswordChar = true;
             // 
@@ -178,7 +179,7 @@
             // 
             btnChangeInfo.Anchor = AnchorStyles.Top;
             btnChangeInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnChangeInfo.Location = new Point(322, 274);
+            btnChangeInfo.Location = new Point(310, 274);
             btnChangeInfo.Name = "btnChangeInfo";
             btnChangeInfo.Size = new Size(124, 31);
             btnChangeInfo.TabIndex = 7;
@@ -214,7 +215,7 @@
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.Location = new Point(151, 163);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(295, 23);
+            txtPassword.Size = new Size(271, 23);
             txtPassword.TabIndex = 10;
             txtPassword.UseSystemPasswordChar = true;
             // 
@@ -224,7 +225,7 @@
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.Location = new Point(151, 89);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(295, 23);
+            txtEmail.Size = new Size(271, 23);
             txtEmail.TabIndex = 4;
             // 
             // txtNewPassword
@@ -233,7 +234,7 @@
             txtNewPassword.Font = new Font("Segoe UI", 9F);
             txtNewPassword.Location = new Point(151, 198);
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.Size = new Size(295, 23);
+            txtNewPassword.Size = new Size(271, 23);
             txtNewPassword.TabIndex = 12;
             txtNewPassword.UseSystemPasswordChar = true;
             // 
@@ -265,7 +266,7 @@
             txtPhoneNumber.Font = new Font("Segoe UI", 9F);
             txtPhoneNumber.Location = new Point(151, 126);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(295, 23);
+            txtPhoneNumber.Size = new Size(271, 23);
             txtPhoneNumber.TabIndex = 5;
             // 
             // labelPhoneNumber
@@ -294,7 +295,7 @@
             // 
             btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnLogout.Location = new Point(680, 409);
+            btnLogout.Location = new Point(656, 385);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(108, 29);
             btnLogout.TabIndex = 8;
@@ -310,7 +311,7 @@
             btnAdmin.FlatAppearance.MouseOverBackColor = Color.DarkGreen;
             btnAdmin.FlatStyle = FlatStyle.Flat;
             btnAdmin.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnAdmin.Location = new Point(493, 30);
+            btnAdmin.Location = new Point(469, 30);
             btnAdmin.Name = "btnAdmin";
             btnAdmin.Size = new Size(258, 36);
             btnAdmin.TabIndex = 1;
@@ -325,18 +326,18 @@
             guna2CircleButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2CircleButton1.Font = new Font("Segoe UI", 9F);
             guna2CircleButton1.ForeColor = Color.White;
-            guna2CircleButton1.Location = new Point(12, 12);
+            guna2CircleButton1.Location = new Point(63, 12);
             guna2CircleButton1.Name = "guna2CircleButton1";
             guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CircleButton1.Size = new Size(81, 71);
+            guna2CircleButton1.Size = new Size(55, 55);
             guna2CircleButton1.TabIndex = 2;
             // 
             // labelRole
             // 
             labelRole.AutoSize = true;
             labelRole.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelRole.Location = new Point(99, 41);
+            labelRole.Location = new Point(124, 37);
             labelRole.Name = "labelRole";
             labelRole.Size = new Size(29, 15);
             labelRole.TabIndex = 0;
@@ -346,11 +347,25 @@
             // 
             labelUserName.AutoSize = true;
             labelUserName.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelUserName.Location = new Point(99, 16);
+            labelUserName.Location = new Point(124, 12);
             labelUserName.Name = "labelUserName";
             labelUserName.Size = new Size(62, 25);
             labelUserName.TabIndex = 0;
             labelUserName.Text = "Name";
+            // 
+            // btnReturn
+            // 
+            btnReturn.FlatStyle = FlatStyle.Flat;
+            btnReturn.IconChar = FontAwesome.Sharp.IconChar.Reply;
+            btnReturn.IconColor = Color.DarkOrange;
+            btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnReturn.IconSize = 25;
+            btnReturn.Location = new Point(0, 0);
+            btnReturn.Name = "btnReturn";
+            btnReturn.Size = new Size(28, 25);
+            btnReturn.TabIndex = 18;
+            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.Click += btnReturn_Click;
             // 
             // fTaiKhoan
             // 
@@ -400,5 +415,6 @@
         private Label labelConfirmPassword;
         private Label labelPhoneNumber;
         private TextBox txtConfirmPassword;
+        private FontAwesome.Sharp.IconButton btnReturn;
     }
 }

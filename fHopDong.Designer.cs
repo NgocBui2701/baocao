@@ -50,6 +50,7 @@
             DiaChi = new DataGridViewTextBoxColumn();
             btnDel = new Button();
             panel1 = new Panel();
+            btnMic = new FontAwesome.Sharp.IconButton();
             btnSearch = new Button();
             txtSearch = new TextBox();
             panel2.SuspendLayout();
@@ -59,7 +60,7 @@
             // 
             // btnInsert
             // 
-            btnInsert.Location = new Point(6, 32);
+            btnInsert.Location = new Point(27, 32);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(60, 23);
             btnInsert.TabIndex = 9;
@@ -69,8 +70,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEdit.Location = new Point(149, 32);
+            btnEdit.Location = new Point(170, 32);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(66, 23);
             btnEdit.TabIndex = 8;
@@ -81,19 +81,20 @@
             // txtPage
             // 
             txtPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtPage.Location = new Point(780, 15);
+            txtPage.Location = new Point(758, 15);
             txtPage.Name = "txtPage";
             txtPage.PlaceholderText = "...";
             txtPage.Size = new Size(40, 23);
             txtPage.TabIndex = 19;
             txtPage.TextAlign = HorizontalAlignment.Center;
+            txtPage.Click += fHopDong_Click;
             txtPage.TextChanged += txtPage_TextChanged;
             txtPage.KeyDown += txtPage_KeyDown;
             // 
             // btnPrevPage
             // 
             btnPrevPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnPrevPage.Location = new Point(735, 15);
+            btnPrevPage.Location = new Point(713, 15);
             btnPrevPage.Name = "btnPrevPage";
             btnPrevPage.Size = new Size(38, 23);
             btnPrevPage.TabIndex = 18;
@@ -104,7 +105,7 @@
             // btnNextPage
             // 
             btnNextPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNextPage.Location = new Point(826, 15);
+            btnNextPage.Location = new Point(804, 15);
             btnNextPage.Name = "btnNextPage";
             btnNextPage.Size = new Size(38, 23);
             btnNextPage.TabIndex = 17;
@@ -115,7 +116,7 @@
             // btnFirstPage
             // 
             btnFirstPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnFirstPage.Location = new Point(658, 15);
+            btnFirstPage.Location = new Point(636, 15);
             btnFirstPage.Name = "btnFirstPage";
             btnFirstPage.Size = new Size(71, 23);
             btnFirstPage.TabIndex = 16;
@@ -136,6 +137,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(957, 50);
             panel2.TabIndex = 20;
+            panel2.Click += fHopDong_Click;
             // 
             // labelPage
             // 
@@ -146,11 +148,12 @@
             labelPage.Size = new Size(36, 15);
             labelPage.TabIndex = 21;
             labelPage.Text = "Trang";
+            labelPage.Click += fHopDong_Click;
             // 
             // btnLastPage
             // 
             btnLastPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLastPage.Location = new Point(870, 15);
+            btnLastPage.Location = new Point(848, 15);
             btnLastPage.Name = "btnLastPage";
             btnLastPage.Size = new Size(75, 23);
             btnLastPage.TabIndex = 20;
@@ -160,21 +163,22 @@
             // 
             // dgvHopDong
             // 
+            dgvHopDong.AccessibleRole = AccessibleRole.Table;
             dgvHopDong.AllowUserToAddRows = false;
             dgvHopDong.AllowUserToDeleteRows = false;
             dgvHopDong.AllowUserToResizeColumns = false;
             dgvHopDong.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             dgvHopDong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHopDong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvHopDong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvHopDong.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dgvHopDong.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.BackColor = Color.DarkOrange;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(0, 0, 5, 0);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkOrange;
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvHopDong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvHopDong.ColumnHeadersHeight = 36;
@@ -182,20 +186,23 @@
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle3.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Chocolate;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvHopDong.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvHopDong.Dock = DockStyle.Fill;
-            dgvHopDong.GridColor = Color.FromArgb(231, 229, 255);
-            dgvHopDong.Location = new Point(0, 67);
+            dgvHopDong.GridColor = Color.White;
+            dgvHopDong.Location = new Point(19, 67);
+            dgvHopDong.Margin = new Padding(10, 3, 10, 3);
             dgvHopDong.MultiSelect = false;
             dgvHopDong.Name = "dgvHopDong";
             dgvHopDong.ReadOnly = true;
+            dgvHopDong.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvHopDong.RowHeadersVisible = false;
             dgvHopDong.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dgvHopDong.Size = new Size(957, 303);
+            dgvHopDong.ShowEditingIcon = false;
+            dgvHopDong.Size = new Size(919, 297);
             dgvHopDong.TabIndex = 22;
             dgvHopDong.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvHopDong.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -203,7 +210,7 @@
             dgvHopDong.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
             dgvHopDong.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             dgvHopDong.ThemeStyle.BackColor = Color.White;
-            dgvHopDong.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvHopDong.ThemeStyle.GridColor = Color.White;
             dgvHopDong.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
             dgvHopDong.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvHopDong.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
@@ -219,6 +226,7 @@
             dgvHopDong.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvHopDong.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgvHopDong.CellClick += dgvHopDong_CellClick;
+            dgvHopDong.CellFormatting += dgvHopDong_CellFormatting;
             // 
             // MaCT
             // 
@@ -227,7 +235,7 @@
             MaCT.HeaderText = "Mã công ty";
             MaCT.Name = "MaCT";
             MaCT.ReadOnly = true;
-            MaCT.Width = 86;
+            MaCT.Width = 101;
             // 
             // TenCT
             // 
@@ -236,7 +244,7 @@
             TenCT.HeaderText = "Tên công ty";
             TenCT.Name = "TenCT";
             TenCT.ReadOnly = true;
-            TenCT.Width = 89;
+            TenCT.Width = 104;
             // 
             // KyHieuCT
             // 
@@ -245,7 +253,7 @@
             KyHieuCT.HeaderText = "Ký hiệu công ty";
             KyHieuCT.Name = "KyHieuCT";
             KyHieuCT.ReadOnly = true;
-            KyHieuCT.Width = 110;
+            KyHieuCT.Width = 125;
             // 
             // NgayHD
             // 
@@ -254,7 +262,7 @@
             NgayHD.HeaderText = "Ngày ký hợp đồng";
             NgayHD.Name = "NgayHD";
             NgayHD.ReadOnly = true;
-            NgayHD.Width = 109;
+            NgayHD.Width = 124;
             // 
             // TenDaiDien
             // 
@@ -263,7 +271,7 @@
             TenDaiDien.HeaderText = "Tên người đại diện";
             TenDaiDien.Name = "TenDaiDien";
             TenDaiDien.ReadOnly = true;
-            TenDaiDien.Width = 116;
+            TenDaiDien.Width = 131;
             // 
             // Sdt
             // 
@@ -272,7 +280,7 @@
             Sdt.HeaderText = "Số điện thoại";
             Sdt.Name = "Sdt";
             Sdt.ReadOnly = true;
-            Sdt.Width = 109;
+            Sdt.Width = 124;
             // 
             // DiaChi
             // 
@@ -281,12 +289,11 @@
             DiaChi.HeaderText = "Địa chỉ";
             DiaChi.Name = "DiaChi";
             DiaChi.ReadOnly = true;
-            DiaChi.Width = 57;
+            DiaChi.Width = 72;
             // 
             // btnDel
             // 
-            btnDel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnDel.Location = new Point(77, 32);
+            btnDel.Location = new Point(98, 32);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(66, 23);
             btnDel.TabIndex = 23;
@@ -296,6 +303,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnMic);
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(btnDel);
             panel1.Controls.Add(txtSearch);
@@ -306,6 +314,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(957, 67);
             panel1.TabIndex = 25;
+            panel1.Click += fHopDong_Click;
+            // 
+            // btnMic
+            // 
+            btnMic.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMic.FlatAppearance.BorderSize = 0;
+            btnMic.FlatStyle = FlatStyle.Flat;
+            btnMic.IconChar = FontAwesome.Sharp.IconChar.Microphone;
+            btnMic.IconColor = Color.DarkOrange;
+            btnMic.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnMic.IconSize = 20;
+            btnMic.Location = new Point(884, 23);
+            btnMic.Name = "btnMic";
+            btnMic.Size = new Size(39, 23);
+            btnMic.TabIndex = 27;
+            btnMic.UseVisualStyleBackColor = true;
+            btnMic.Click += btnTranslate_Click;
             // 
             // btnSearch
             // 
@@ -326,6 +351,7 @@
             txtSearch.PlaceholderText = "Tìm kiếm";
             txtSearch.Size = new Size(163, 23);
             txtSearch.TabIndex = 25;
+            txtSearch.Click += fHopDong_Click;
             txtSearch.TextChanged += txtSearch_TextChanged;
             txtSearch.KeyDown += txtSearch_KeyDown;
             // 
@@ -342,6 +368,7 @@
             Name = "fHopDong";
             Text = "CM";
             Load += fHopDong_Load;
+            Click += fHopDong_Click;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHopDong).EndInit();
@@ -379,5 +406,6 @@
         private Button btnSearch;
         private TextBox txtSearch;
         private Label labelPage;
+        private FontAwesome.Sharp.IconButton btnMic;
     }
 }

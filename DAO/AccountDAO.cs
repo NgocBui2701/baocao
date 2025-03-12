@@ -50,5 +50,10 @@ namespace baocao.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {username, id, name, email, phone, password, newPassword });
             return result > 0;
         }
+        public DataTable GetListAccount()
+        {
+            string query = "USP_GetAccount";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] {}, true);
+        }
     }
 }

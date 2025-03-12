@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtMaCT = new TextBox();
             txtTenCT = new TextBox();
             txtKyHieuCT = new TextBox();
@@ -47,7 +46,7 @@
             labelMaHD = new Label();
             txtMaHD = new TextBox();
             txtNgayHD = new TextBox();
-            btnExit = new Guna.UI2.WinForms.Guna2CircleButton();
+            btnExit = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
             // txtMaCT
@@ -201,27 +200,21 @@
             // 
             // btnExit
             // 
-            btnExit.Cursor = Cursors.Hand;
-            btnExit.DisabledState.BorderColor = Color.DarkGray;
-            btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnExit.FillColor = Color.Transparent;
-            btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.ForeColor = SystemColors.ControlDark;
-            btnExit.ImageSize = new Size(30, 30);
-            btnExit.Location = new Point(758, 6);
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnExit.IconColor = Color.DarkOrange;
+            btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnExit.IconSize = 25;
+            btnExit.Location = new Point(774, 1);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            btnExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            btnExit.Size = new Size(30, 30);
+            btnExit.Size = new Size(25, 25);
             btnExit.TabIndex = 19;
-            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnCancel_Click;
-            btnExit.MouseEnter += btnExit_MouseEnter;
-            btnExit.MouseLeave += btnExit_MouseLeave;
             // 
-            // fDSHDEdit
+            // fHopDongEdit
             // 
             AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -248,7 +241,7 @@
             Controls.Add(txtTenCT);
             Controls.Add(txtMaCT);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "fDSHDEdit";
+            Name = "fHopDongEdit";
             Text = "fDSHDEdit";
             ResumeLayout(false);
             PerformLayout();
@@ -274,6 +267,6 @@
         private Label labelMaHD;
         private TextBox txtMaHD;
         private TextBox txtNgayHD;
-        private Guna.UI2.WinForms.Guna2CircleButton btnExit;
+        private FontAwesome.Sharp.IconButton btnExit;
     }
 }

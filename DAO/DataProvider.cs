@@ -107,31 +107,64 @@ namespace baocao.DAO
             }
             return data;
         }
-
-        public object ExecuteScalar(string query, object[] paremeter)
+        public object ExecuteScalar(string query, Dictionary<string, object> parameters = null, bool isStoredProcedure = false)
         {
-            object data = 0;
+            object data = null;
             using (SqlConnection connection = new SqlConnection(connStr))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                if (paremeter != null)
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string[] listParemeter = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listParemeter)
+                    command.CommandType = isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text;
+
+                    // Thêm tham số nếu có
+                    if (parameters != null)
                     {
-                        if (item.Contains('@'))
+                        foreach (var param in parameters)
                         {
-                            command.Parameters.AddWithValue(item, paremeter[i]);
-                            i++;
+                            command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
                         }
                     }
+
+                    data = command.ExecuteScalar();
                 }
-                data = command.ExecuteScalar();
-                connection.Close();
             }
             return data;
         }
+
+        public object ExecuteProcedureWithOutput(string procName, Dictionary<string, object> inputParams, string outputParamName)
+        {
+            object outputValue = null;
+            using (SqlConnection connection = new SqlConnection(connStr))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(procName, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Thêm tham số đầu vào
+                    if (inputParams != null)
+                    {
+                        foreach (var param in inputParams)
+                        {
+                            command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                        }
+                    }
+
+                    // Thêm tham số OUTPUT
+                    SqlParameter outputParam = new SqlParameter(outputParamName, SqlDbType.VarChar, 10);
+                    outputParam.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(outputParam);
+
+                    // Thực thi Stored Procedure
+                    command.ExecuteNonQuery();
+
+                    // Lấy giá trị OUTPUT
+                    outputValue = outputParam.Value;
+                }
+            }
+            return outputValue;
+        }
+
     }
 }

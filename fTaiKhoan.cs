@@ -37,7 +37,7 @@ namespace baocao
             btnCancel.Visible = false;
             btnChangePassword.Visible = true;
             btnChangeInfo.Visible = true;
-            btnAdmin.Enabled = loginAccount.VaiTro == "Admin";
+            btnAdmin.Enabled = loginAccount.VaiTro == "Quản trị viên";
             btnLogout.Enabled = true;
         }
         public fTaiKhoan(Account acc)
@@ -137,6 +137,11 @@ namespace baocao
         private void btnCancel_Click(object sender, EventArgs e)
         {
             SetLoginAccount(loginAccount);
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

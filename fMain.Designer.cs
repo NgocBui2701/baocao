@@ -26,53 +26,33 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelMain = new Panel();
             panelBody = new Panel();
-            panelNavbar = new Panel();
-            btnMinimize = new Guna.UI2.WinForms.Guna2CircleButton();
-            labelName = new Label();
+            panelPage = new Panel();
+            btnNoti = new FontAwesome.Sharp.IconButton();
             labelPage = new Label();
-            btnRestoreDown = new Guna.UI2.WinForms.Guna2CircleButton();
-            btnLogo = new Guna.UI2.WinForms.Guna2ImageButton();
-            btnExit = new Guna.UI2.WinForms.Guna2CircleButton();
-            panelMenu = new Guna.UI2.WinForms.Guna2Panel();
+            btnPage = new FontAwesome.Sharp.IconButton();
+            panelNavbar = new Panel();
+            labelName = new Label();
+            btnMinimize = new FontAwesome.Sharp.IconButton();
+            btnRestoreDown = new FontAwesome.Sharp.IconButton();
+            btnExit = new FontAwesome.Sharp.IconButton();
+            panelMenu = new Panel();
+            btnCaiDat = new FontAwesome.Sharp.IconButton();
+            btnThongKe = new FontAwesome.Sharp.IconButton();
+            btnDonHang = new FontAwesome.Sharp.IconButton();
+            btnHopDong = new FontAwesome.Sharp.IconButton();
+            btnHome = new FontAwesome.Sharp.IconButton();
             panelExpand = new Panel();
-            btnNoti = new Guna.UI2.WinForms.Guna2Button();
-            btnMenu = new Guna.UI2.WinForms.Guna2Button();
-            btnSetting = new Guna.UI2.WinForms.Guna2Button();
-            btnUP = new Guna.UI2.WinForms.Guna2Button();
-            btnHome = new Guna.UI2.WinForms.Guna2Button();
-            btnReports = new Guna.UI2.WinForms.Guna2Button();
-            btnCM = new Guna.UI2.WinForms.Guna2Button();
-            btnSM = new Guna.UI2.WinForms.Guna2Button();
+            btnMenu = new FontAwesome.Sharp.IconButton();
+            btnLogo = new FontAwesome.Sharp.IconButton();
             menuTimer = new System.Windows.Forms.Timer(components);
             panelMain.SuspendLayout();
+            panelPage.SuspendLayout();
             panelNavbar.SuspendLayout();
             panelMenu.SuspendLayout();
             panelExpand.SuspendLayout();
@@ -82,365 +62,384 @@
             // 
             panelMain.BackColor = Color.Transparent;
             panelMain.Controls.Add(panelBody);
+            panelMain.Controls.Add(panelPage);
             panelMain.Controls.Add(panelNavbar);
             panelMain.Controls.Add(panelMenu);
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(0, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(900, 450);
+            panelMain.Size = new Size(900, 550);
             panelMain.TabIndex = 0;
             // 
             // panelBody
             // 
             panelBody.BackColor = Color.Transparent;
             panelBody.Dock = DockStyle.Fill;
-            panelBody.Location = new Point(210, 40);
+            panelBody.Font = new Font("Segoe UI", 12F);
+            panelBody.Location = new Point(250, 69);
             panelBody.Name = "panelBody";
-            panelBody.Size = new Size(690, 410);
-            panelBody.TabIndex = 18;
+            panelBody.Size = new Size(650, 481);
+            panelBody.TabIndex = 0;
+            // 
+            // panelPage
+            // 
+            panelPage.Controls.Add(btnNoti);
+            panelPage.Controls.Add(labelPage);
+            panelPage.Controls.Add(btnPage);
+            panelPage.Dock = DockStyle.Top;
+            panelPage.Location = new Point(250, 25);
+            panelPage.Name = "panelPage";
+            panelPage.Size = new Size(650, 44);
+            panelPage.TabIndex = 0;
+            // 
+            // btnNoti
+            // 
+            btnNoti.BackColor = Color.Transparent;
+            btnNoti.Cursor = Cursors.Hand;
+            btnNoti.Dock = DockStyle.Right;
+            btnNoti.FlatAppearance.BorderSize = 0;
+            btnNoti.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnNoti.FlatStyle = FlatStyle.Flat;
+            btnNoti.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnNoti.ForeColor = Color.White;
+            btnNoti.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            btnNoti.IconColor = Color.DarkOrange;
+            btnNoti.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnNoti.IconSize = 25;
+            btnNoti.Location = new Point(625, 0);
+            btnNoti.Name = "btnNoti";
+            btnNoti.Size = new Size(25, 44);
+            btnNoti.TabIndex = 4;
+            btnNoti.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNoti.UseVisualStyleBackColor = false;
+            btnNoti.Click += btnNoti_Click;
+            btnNoti.MouseEnter += btnNoti_MouseEnter;
+            btnNoti.MouseLeave += btnNoti_MouseLeave;
+            // 
+            // labelPage
+            // 
+            labelPage.AutoSize = true;
+            labelPage.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelPage.ForeColor = Color.FromArgb(30, 30, 30);
+            labelPage.Location = new Point(26, 14);
+            labelPage.Name = "labelPage";
+            labelPage.Size = new Size(63, 15);
+            labelPage.TabIndex = 0;
+            labelPage.Text = "Trang chủ";
+            // 
+            // btnPage
+            // 
+            btnPage.BackColor = Color.Transparent;
+            btnPage.Cursor = Cursors.Hand;
+            btnPage.Dock = DockStyle.Left;
+            btnPage.FlatAppearance.BorderSize = 0;
+            btnPage.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnPage.FlatStyle = FlatStyle.Flat;
+            btnPage.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnPage.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            btnPage.IconColor = Color.FromArgb(30, 30, 30);
+            btnPage.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPage.IconSize = 20;
+            btnPage.Location = new Point(0, 0);
+            btnPage.Name = "btnPage";
+            btnPage.Size = new Size(20, 44);
+            btnPage.TabIndex = 0;
+            btnPage.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPage.UseVisualStyleBackColor = false;
             // 
             // panelNavbar
             // 
             panelNavbar.BackColor = Color.Transparent;
-            panelNavbar.Controls.Add(btnMinimize);
             panelNavbar.Controls.Add(labelName);
-            panelNavbar.Controls.Add(labelPage);
+            panelNavbar.Controls.Add(btnMinimize);
             panelNavbar.Controls.Add(btnRestoreDown);
-            panelNavbar.Controls.Add(btnLogo);
             panelNavbar.Controls.Add(btnExit);
             panelNavbar.Dock = DockStyle.Top;
             panelNavbar.ForeColor = Color.Transparent;
-            panelNavbar.Location = new Point(210, 0);
+            panelNavbar.Location = new Point(250, 0);
             panelNavbar.Name = "panelNavbar";
-            panelNavbar.Size = new Size(690, 40);
+            panelNavbar.Size = new Size(650, 25);
             panelNavbar.TabIndex = 0;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.BackColor = Color.Transparent;
-            btnMinimize.Cursor = Cursors.Hand;
-            btnMinimize.DisabledState.BorderColor = Color.DarkGray;
-            btnMinimize.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnMinimize.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnMinimize.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnMinimize.Dock = DockStyle.Right;
-            btnMinimize.FillColor = Color.Transparent;
-            btnMinimize.Font = new Font("Segoe UI", 9F);
-            btnMinimize.ForeColor = Color.White;
-            btnMinimize.Image = Properties.Resources.minimize;
-            btnMinimize.Location = new Point(630, 0);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            btnMinimize.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            btnMinimize.Size = new Size(20, 40);
-            btnMinimize.TabIndex = 14;
-            btnMinimize.Click += btnMinimize_Click;
+            panelNavbar.MouseDown += PanelNavbar_MouseDown;
             // 
             // labelName
             // 
             labelName.AutoSize = true;
             labelName.BackColor = Color.Transparent;
             labelName.Font = new Font("Century Gothic", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelName.ForeColor = SystemColors.ControlText;
-            labelName.Location = new Point(26, 0);
+            labelName.ForeColor = Color.FromArgb(30, 30, 30);
+            labelName.Location = new Point(6, 5);
             labelName.Name = "labelName";
             labelName.Size = new Size(77, 16);
-            labelName.TabIndex = 19;
+            labelName.TabIndex = 0;
             labelName.Text = "Tên Công Ty";
             // 
-            // labelPage
+            // btnMinimize
             // 
-            labelPage.AutoSize = true;
-            labelPage.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            labelPage.ForeColor = SystemColors.ControlText;
-            labelPage.Location = new Point(0, 24);
-            labelPage.Name = "labelPage";
-            labelPage.Size = new Size(63, 15);
-            labelPage.TabIndex = 18;
-            labelPage.Text = "Trang chủ";
+            btnMinimize.Dock = DockStyle.Right;
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.IconChar = FontAwesome.Sharp.IconChar.MinusCircle;
+            btnMinimize.IconColor = Color.DarkOrange;
+            btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnMinimize.IconSize = 25;
+            btnMinimize.Location = new Point(575, 0);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(25, 25);
+            btnMinimize.TabIndex = 1;
+            btnMinimize.UseVisualStyleBackColor = false;
+            btnMinimize.Click += btnMinimize_Click;
             // 
             // btnRestoreDown
             // 
-            btnRestoreDown.BackColor = Color.Transparent;
-            btnRestoreDown.Cursor = Cursors.Hand;
-            btnRestoreDown.DisabledState.BorderColor = Color.DarkGray;
-            btnRestoreDown.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnRestoreDown.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnRestoreDown.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnRestoreDown.Dock = DockStyle.Right;
-            btnRestoreDown.FillColor = Color.Transparent;
-            btnRestoreDown.Font = new Font("Segoe UI", 9F);
-            btnRestoreDown.ForeColor = Color.White;
-            btnRestoreDown.Image = Properties.Resources.restoredown;
-            btnRestoreDown.Location = new Point(650, 0);
+            btnRestoreDown.FlatAppearance.BorderSize = 0;
+            btnRestoreDown.FlatStyle = FlatStyle.Flat;
+            btnRestoreDown.IconChar = FontAwesome.Sharp.IconChar.CircleStop;
+            btnRestoreDown.IconColor = Color.DarkOrange;
+            btnRestoreDown.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnRestoreDown.IconSize = 25;
+            btnRestoreDown.Location = new Point(600, 0);
             btnRestoreDown.Name = "btnRestoreDown";
-            btnRestoreDown.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnRestoreDown.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            btnRestoreDown.Size = new Size(20, 40);
-            btnRestoreDown.TabIndex = 15;
+            btnRestoreDown.Size = new Size(25, 25);
+            btnRestoreDown.TabIndex = 2;
+            btnRestoreDown.UseVisualStyleBackColor = false;
             btnRestoreDown.Click += btnRestoreDown_Click;
-            // 
-            // btnLogo
-            // 
-            btnLogo.BackColor = Color.Transparent;
-            btnLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnLogo.CheckedState.ImageSize = new Size(64, 64);
-            btnLogo.Cursor = Cursors.Hand;
-            btnLogo.HoverState.ImageSize = new Size(64, 64);
-            btnLogo.Image = (Image)resources.GetObject("btnLogo.Image");
-            btnLogo.ImageOffset = new Point(0, 0);
-            btnLogo.ImageRotate = 0F;
-            btnLogo.ImageSize = new Size(20, 20);
-            btnLogo.Location = new Point(0, 0);
-            btnLogo.Name = "btnLogo";
-            btnLogo.PressedState.ImageSize = new Size(64, 64);
-            btnLogo.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btnLogo.Size = new Size(20, 20);
-            btnLogo.TabIndex = 9;
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Transparent;
-            btnExit.Cursor = Cursors.Hand;
-            btnExit.DisabledState.BorderColor = Color.DarkGray;
-            btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnExit.Dock = DockStyle.Right;
-            btnExit.FillColor = Color.Transparent;
-            btnExit.Font = new Font("Segoe UI", 9F);
-            btnExit.ForeColor = Color.White;
-            btnExit.Image = Properties.Resources.close;
-            btnExit.Location = new Point(670, 0);
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnExit.IconColor = Color.DarkOrange;
+            btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            btnExit.IconSize = 25;
+            btnExit.Location = new Point(625, 0);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            btnExit.Size = new Size(20, 40);
-            btnExit.TabIndex = 13;
+            btnExit.Size = new Size(25, 25);
+            btnExit.TabIndex = 3;
+            btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
             // 
             // panelMenu
             // 
             panelMenu.BackColor = Color.DarkOrange;
-            panelMenu.Controls.Add(panelExpand);
-            panelMenu.Controls.Add(btnSetting);
-            panelMenu.Controls.Add(btnUP);
+            panelMenu.Controls.Add(btnCaiDat);
+            panelMenu.Controls.Add(btnThongKe);
+            panelMenu.Controls.Add(btnDonHang);
+            panelMenu.Controls.Add(btnHopDong);
             panelMenu.Controls.Add(btnHome);
-            panelMenu.Controls.Add(btnReports);
-            panelMenu.Controls.Add(btnCM);
-            panelMenu.Controls.Add(btnSM);
-            panelMenu.CustomizableEdges = customizableEdges21;
+            panelMenu.Controls.Add(panelExpand);
+            panelMenu.Controls.Add(btnLogo);
             panelMenu.Dock = DockStyle.Left;
-            panelMenu.ForeColor = Color.White;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            panelMenu.Size = new Size(210, 450);
-            panelMenu.TabIndex = 17;
+            panelMenu.Size = new Size(250, 550);
+            panelMenu.TabIndex = 0;
+            // 
+            // btnCaiDat
+            // 
+            btnCaiDat.BackColor = Color.DarkOrange;
+            btnCaiDat.Cursor = Cursors.Hand;
+            btnCaiDat.Dock = DockStyle.Top;
+            btnCaiDat.FlatAppearance.BorderSize = 0;
+            btnCaiDat.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnCaiDat.FlatStyle = FlatStyle.Flat;
+            btnCaiDat.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCaiDat.ForeColor = Color.White;
+            btnCaiDat.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            btnCaiDat.IconColor = Color.White;
+            btnCaiDat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCaiDat.IconSize = 40;
+            btnCaiDat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCaiDat.Location = new Point(0, 365);
+            btnCaiDat.Name = "btnCaiDat";
+            btnCaiDat.Padding = new Padding(5, 0, 20, 0);
+            btnCaiDat.Size = new Size(250, 65);
+            btnCaiDat.TabIndex = 11;
+            btnCaiDat.Text = "Cài đặt";
+            btnCaiDat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCaiDat.UseVisualStyleBackColor = false;
+            btnCaiDat.Click += btnCaiDat_Click;
+            // 
+            // btnThongKe
+            // 
+            btnThongKe.BackColor = Color.DarkOrange;
+            btnThongKe.Cursor = Cursors.Hand;
+            btnThongKe.Dock = DockStyle.Top;
+            btnThongKe.FlatAppearance.BorderSize = 0;
+            btnThongKe.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnThongKe.FlatStyle = FlatStyle.Flat;
+            btnThongKe.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnThongKe.ForeColor = Color.White;
+            btnThongKe.IconChar = FontAwesome.Sharp.IconChar.PieChart;
+            btnThongKe.IconColor = Color.White;
+            btnThongKe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnThongKe.IconSize = 40;
+            btnThongKe.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThongKe.Location = new Point(0, 300);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Padding = new Padding(5, 0, 20, 0);
+            btnThongKe.Size = new Size(250, 65);
+            btnThongKe.TabIndex = 9;
+            btnThongKe.Text = "Thống kê";
+            btnThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnThongKe.UseVisualStyleBackColor = false;
+            btnThongKe.Click += btnThongKe_Click;
+            // 
+            // btnDonHang
+            // 
+            btnDonHang.BackColor = Color.DarkOrange;
+            btnDonHang.Cursor = Cursors.Hand;
+            btnDonHang.Dock = DockStyle.Top;
+            btnDonHang.FlatAppearance.BorderSize = 0;
+            btnDonHang.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnDonHang.FlatStyle = FlatStyle.Flat;
+            btnDonHang.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDonHang.ForeColor = Color.White;
+            btnDonHang.IconChar = FontAwesome.Sharp.IconChar.LayerGroup;
+            btnDonHang.IconColor = Color.White;
+            btnDonHang.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnDonHang.IconSize = 40;
+            btnDonHang.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDonHang.Location = new Point(0, 235);
+            btnDonHang.Name = "btnDonHang";
+            btnDonHang.Padding = new Padding(5, 0, 20, 0);
+            btnDonHang.Size = new Size(250, 65);
+            btnDonHang.TabIndex = 8;
+            btnDonHang.Text = "Danh sách đơn hàng";
+            btnDonHang.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDonHang.UseVisualStyleBackColor = false;
+            btnDonHang.Click += btnDonHang_Click;
+            // 
+            // btnHopDong
+            // 
+            btnHopDong.BackColor = Color.DarkOrange;
+            btnHopDong.Cursor = Cursors.Hand;
+            btnHopDong.Dock = DockStyle.Top;
+            btnHopDong.FlatAppearance.BorderSize = 0;
+            btnHopDong.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnHopDong.FlatStyle = FlatStyle.Flat;
+            btnHopDong.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnHopDong.ForeColor = Color.White;
+            btnHopDong.IconChar = FontAwesome.Sharp.IconChar.EnvelopesBulk;
+            btnHopDong.IconColor = Color.White;
+            btnHopDong.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHopDong.IconSize = 40;
+            btnHopDong.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHopDong.Location = new Point(0, 170);
+            btnHopDong.Name = "btnHopDong";
+            btnHopDong.Padding = new Padding(5, 0, 20, 0);
+            btnHopDong.Size = new Size(250, 65);
+            btnHopDong.TabIndex = 7;
+            btnHopDong.Text = "Danh sách hợp đồng";
+            btnHopDong.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHopDong.UseVisualStyleBackColor = false;
+            btnHopDong.Click += btnHopDong_Click;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.DarkOrange;
+            btnHome.Cursor = Cursors.Hand;
+            btnHome.Dock = DockStyle.Top;
+            btnHome.FlatAppearance.BorderSize = 0;
+            btnHome.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnHome.ForeColor = Color.White;
+            btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            btnHome.IconColor = Color.White;
+            btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHome.IconSize = 40;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(0, 105);
+            btnHome.Name = "btnHome";
+            btnHome.Padding = new Padding(5, 0, 20, 0);
+            btnHome.Size = new Size(250, 65);
+            btnHome.TabIndex = 6;
+            btnHome.Text = "Trang chủ";
+            btnHome.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // panelExpand
             // 
             panelExpand.BackColor = Color.Transparent;
-            panelExpand.Controls.Add(btnNoti);
             panelExpand.Controls.Add(btnMenu);
             panelExpand.Dock = DockStyle.Top;
             panelExpand.ForeColor = Color.Transparent;
-            panelExpand.Location = new Point(0, 0);
+            panelExpand.Location = new Point(0, 65);
             panelExpand.Name = "panelExpand";
-            panelExpand.Size = new Size(210, 40);
+            panelExpand.Size = new Size(250, 40);
             panelExpand.TabIndex = 20;
-            // 
-            // btnNoti
-            // 
-            btnNoti.Animated = true;
-            btnNoti.AnimatedGIF = true;
-            btnNoti.Cursor = Cursors.Hand;
-            btnNoti.CustomizableEdges = customizableEdges5;
-            btnNoti.DisabledState.BorderColor = Color.DarkGray;
-            btnNoti.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnNoti.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnNoti.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnNoti.FillColor = Color.Transparent;
-            btnNoti.Font = new Font("Segoe UI", 9F);
-            btnNoti.ForeColor = Color.White;
-            btnNoti.Image = Properties.Resources.notification;
-            btnNoti.ImageSize = new Size(23, 23);
-            btnNoti.Location = new Point(12, 10);
-            btnNoti.Name = "btnNoti";
-            btnNoti.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnNoti.Size = new Size(20, 20);
-            btnNoti.TabIndex = 19;
             // 
             // btnMenu
             // 
-            btnMenu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMenu.BackColor = Color.Transparent;
+            btnMenu.BackColor = Color.DarkOrange;
             btnMenu.Cursor = Cursors.Hand;
-            btnMenu.CustomizableEdges = customizableEdges7;
-            btnMenu.DisabledState.BorderColor = Color.DarkGray;
-            btnMenu.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnMenu.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnMenu.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnMenu.FillColor = Color.Transparent;
-            btnMenu.Font = new Font("Segoe UI", 9F);
+            btnMenu.Dock = DockStyle.Right;
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnMenu.ForeColor = Color.White;
-            btnMenu.Image = Properties.Resources.menu;
-            btnMenu.ImageSize = new Size(25, 25);
-            btnMenu.Location = new Point(180, 0);
+            btnMenu.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            btnMenu.IconColor = Color.White;
+            btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnMenu.IconSize = 40;
+            btnMenu.Location = new Point(210, 0);
             btnMenu.Name = "btnMenu";
-            btnMenu.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnMenu.Size = new Size(30, 30);
-            btnMenu.TabIndex = 10;
-            btnMenu.UseTransparentBackground = true;
+            btnMenu.Size = new Size(40, 40);
+            btnMenu.TabIndex = 5;
+            btnMenu.TextAlign = ContentAlignment.MiddleLeft;
+            btnMenu.UseVisualStyleBackColor = false;
             btnMenu.Click += btnMenu_Click;
             // 
-            // btnSetting
+            // btnLogo
             // 
-            btnSetting.BackColor = Color.Transparent;
-            btnSetting.BorderColor = Color.DarkGray;
-            btnSetting.Cursor = Cursors.Hand;
-            btnSetting.CustomizableEdges = customizableEdges9;
-            btnSetting.DisabledState.BorderColor = Color.DarkGray;
-            btnSetting.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnSetting.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnSetting.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSetting.FillColor = Color.Transparent;
-            btnSetting.Font = new Font("Segoe UI", 12F);
-            btnSetting.ForeColor = Color.White;
-            btnSetting.Location = new Point(0, 382);
-            btnSetting.Name = "btnSetting";
-            btnSetting.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnSetting.Size = new Size(210, 65);
-            btnSetting.TabIndex = 7;
-            btnSetting.Text = "Cài đặt";
-            btnSetting.Click += btnSetting_Click;
-            // 
-            // btnUP
-            // 
-            btnUP.BackColor = Color.Transparent;
-            btnUP.BorderColor = Color.DarkGray;
-            btnUP.Cursor = Cursors.Hand;
-            btnUP.CustomizableEdges = customizableEdges11;
-            btnUP.DisabledState.BorderColor = Color.DarkGray;
-            btnUP.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnUP.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnUP.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnUP.FillColor = Color.Transparent;
-            btnUP.Font = new Font("Segoe UI", 12F);
-            btnUP.ForeColor = Color.White;
-            btnUP.Location = new Point(0, 313);
-            btnUP.Name = "btnUP";
-            btnUP.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnUP.Size = new Size(210, 65);
-            btnUP.TabIndex = 6;
-            btnUP.Text = "Thông tin tài khoản";
-            btnUP.Click += btnUP_Click;
-            // 
-            // btnHome
-            // 
-            btnHome.BackColor = Color.Transparent;
-            btnHome.BorderColor = Color.DarkGray;
-            btnHome.Cursor = Cursors.Hand;
-            btnHome.CustomizableEdges = customizableEdges13;
-            btnHome.DisabledState.BorderColor = Color.DarkGray;
-            btnHome.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnHome.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnHome.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHome.FillColor = Color.Transparent;
-            btnHome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHome.ForeColor = Color.White;
-            btnHome.Location = new Point(0, 41);
-            btnHome.Name = "btnHome";
-            btnHome.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnHome.Size = new Size(210, 65);
-            btnHome.TabIndex = 1;
-            btnHome.Text = "Trang chủ";
-            btnHome.Click += btnHome_Click;
-            // 
-            // btnReports
-            // 
-            btnReports.BackColor = Color.Transparent;
-            btnReports.BorderColor = Color.DarkGray;
-            btnReports.Cursor = Cursors.Hand;
-            btnReports.CustomizableEdges = customizableEdges15;
-            btnReports.DisabledState.BorderColor = Color.Transparent;
-            btnReports.DisabledState.CustomBorderColor = Color.Transparent;
-            btnReports.DisabledState.FillColor = Color.Transparent;
-            btnReports.DisabledState.ForeColor = Color.White;
-            btnReports.FillColor = Color.Transparent;
-            btnReports.Font = new Font("Segoe UI", 12F);
-            btnReports.ForeColor = Color.White;
-            btnReports.Location = new Point(0, 245);
-            btnReports.Name = "btnReports";
-            btnReports.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnReports.Size = new Size(210, 65);
-            btnReports.TabIndex = 5;
-            btnReports.Text = "Thống kê";
-            btnReports.Click += btnReports_Click;
-            // 
-            // btnCM
-            // 
-            btnCM.BackColor = Color.Transparent;
-            btnCM.BorderColor = Color.DarkGray;
-            btnCM.Cursor = Cursors.Hand;
-            btnCM.CustomizableEdges = customizableEdges17;
-            btnCM.DisabledState.BorderColor = Color.Transparent;
-            btnCM.DisabledState.CustomBorderColor = Color.Transparent;
-            btnCM.DisabledState.FillColor = Color.Transparent;
-            btnCM.DisabledState.ForeColor = Color.White;
-            btnCM.FillColor = Color.Transparent;
-            btnCM.Font = new Font("Segoe UI", 12F);
-            btnCM.ForeColor = Color.White;
-            btnCM.Location = new Point(0, 109);
-            btnCM.Name = "btnCM";
-            btnCM.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnCM.Size = new Size(210, 65);
-            btnCM.TabIndex = 2;
-            btnCM.Text = "Danh sách hợp đồng";
-            btnCM.Click += btnCM_Click;
-            // 
-            // btnSM
-            // 
-            btnSM.BackColor = Color.Transparent;
-            btnSM.BorderColor = Color.DarkGray;
-            btnSM.Cursor = Cursors.Hand;
-            btnSM.CustomizableEdges = customizableEdges19;
-            btnSM.DisabledState.BorderColor = Color.Transparent;
-            btnSM.DisabledState.CustomBorderColor = Color.Transparent;
-            btnSM.DisabledState.FillColor = Color.Transparent;
-            btnSM.DisabledState.ForeColor = Color.White;
-            btnSM.FillColor = Color.Transparent;
-            btnSM.Font = new Font("Segoe UI", 12F);
-            btnSM.ForeColor = Color.White;
-            btnSM.Location = new Point(0, 177);
-            btnSM.Name = "btnSM";
-            btnSM.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnSM.Size = new Size(210, 65);
-            btnSM.TabIndex = 3;
-            btnSM.Text = "Danh sách bán hàng";
-            btnSM.Click += btnSM_Click;
+            btnLogo.BackColor = Color.DarkOrange;
+            btnLogo.Cursor = Cursors.Hand;
+            btnLogo.Dock = DockStyle.Top;
+            btnLogo.FlatAppearance.BorderSize = 0;
+            btnLogo.FlatAppearance.CheckedBackColor = Color.Transparent;
+            btnLogo.FlatStyle = FlatStyle.Flat;
+            btnLogo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogo.ForeColor = Color.White;
+            btnLogo.IconChar = FontAwesome.Sharp.IconChar.Cat;
+            btnLogo.IconColor = Color.White;
+            btnLogo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLogo.IconSize = 50;
+            btnLogo.Location = new Point(0, 0);
+            btnLogo.Name = "btnLogo";
+            btnLogo.Size = new Size(250, 65);
+            btnLogo.TabIndex = 0;
+            btnLogo.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLogo.UseVisualStyleBackColor = false;
             // 
             // menuTimer
             // 
             menuTimer.Interval = 30;
             menuTimer.Tick += menuTimer_Tick;
             // 
-            // home
+            // fMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            CancelButton = btnExit;
-            ClientSize = new Size(900, 450);
+            ClientSize = new Size(900, 550);
             Controls.Add(panelMain);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "home";
+            Name = "fMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
-            Load += btnHome_Click;
+            Load += fMain_Load;
             BackColorChanged += home_BackColorChanged;
+            Resize += fMain_Resize;
             panelMain.ResumeLayout(false);
+            panelPage.ResumeLayout(false);
+            panelPage.PerformLayout();
             panelNavbar.ResumeLayout(false);
             panelNavbar.PerformLayout();
             panelMenu.ResumeLayout(false);
@@ -449,26 +448,26 @@
         }
 
         #endregion
-        private Panel panelNavbar;
-        private Guna.UI2.WinForms.Guna2CircleButton btnMinimize;
-        private Guna.UI2.WinForms.Guna2CircleButton btnRestoreDown;
-        private Guna.UI2.WinForms.Guna2CircleButton btnExit;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Button btnSetting;
-        private Guna.UI2.WinForms.Guna2ImageButton btnLogo;
-        private Guna.UI2.WinForms.Guna2Button btnUP;
-        private Guna.UI2.WinForms.Guna2Button btnHome;
-        private Guna.UI2.WinForms.Guna2Button btnReports;
-        private Guna.UI2.WinForms.Guna2Button btnCM;
-        private Guna.UI2.WinForms.Guna2Button btnSM;
-        private Guna.UI2.WinForms.Guna2Button btnMenu;
-        private Guna.UI2.WinForms.Guna2Panel panelMenu;
         private Panel panelMain;
-        private Panel panelBody;
-        private System.Windows.Forms.Timer menuTimer;
-        private Label labelName;
         private Panel panelExpand;
-        private Guna.UI2.WinForms.Guna2Button btnNoti;
+        private Panel panelNavbar;
+        private Panel panelPage;
+        private Panel panelBody;
+        private Label labelName;
         private Label labelPage;
+        private FontAwesome.Sharp.IconButton btnPage;
+        private FontAwesome.Sharp.IconButton btnNoti;
+        private FontAwesome.Sharp.IconButton btnLogo;
+        private FontAwesome.Sharp.IconButton btnMenu;
+        private FontAwesome.Sharp.IconButton btnHome;
+        private FontAwesome.Sharp.IconButton btnHopDong;
+        private FontAwesome.Sharp.IconButton btnDonHang;
+        private FontAwesome.Sharp.IconButton btnThongKe;
+        private FontAwesome.Sharp.IconButton btnCaiDat;
+        private System.Windows.Forms.Timer menuTimer;
+        private FontAwesome.Sharp.IconButton btnMinimize;
+        private FontAwesome.Sharp.IconButton btnExit;
+        private FontAwesome.Sharp.IconButton btnRestoreDown;
+        private Panel panelMenu;
     }
 }

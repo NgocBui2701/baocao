@@ -7,6 +7,7 @@ namespace baocao
 {
     public partial class fDangNhap : Form
     {
+        bool isDarkMode = Properties.Settings.Default.DarkMode;
         public fDangNhap()
         {
             InitializeComponent();
@@ -20,6 +21,15 @@ namespace baocao
         #region Events
         private void login_Load(object sender, EventArgs e)
         {
+            Color itemColor = isDarkMode ? Color.White : Color.FromArgb(30, 30, 30);
+            Color backgroundColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            panelMain.BackColor = backgroundColor;
+            panelMain.ForeColor = itemColor;
+            panelLogin.BackColor = backgroundColor;
+            panelLogin.ForeColor = itemColor;
+            labelLogin.ForeColor = itemColor;
+            labelTitle.ForeColor = itemColor;
+            btnExit.BackColor = backgroundColor;
             labelError.Visible = false;
             btnCircle.Enabled = false;
             txtUsername.Focus();
@@ -27,16 +37,6 @@ namespace baocao
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-        private void btnExit_MouseEnter(object sender, EventArgs e)
-        {
-            btnExit.FillColor = Color.Red;
-            btnExit.ForeColor = Color.White;
-        }
-        private void btnExit_MouseLeave(object sender, EventArgs e)
-        {
-            btnExit.FillColor = Color.Transparent;
-            btnExit.ForeColor = Color.DarkGray;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -67,5 +67,6 @@ namespace baocao
             btnLogin.Size = new Size(235, 45);
         }
         #endregion
+
     }
 }

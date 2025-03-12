@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,9 +20,14 @@ namespace baocao
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
         private Rectangle sizeGripRectangle;
-        private bool dragging = false;
+        bool isDarkMode = Properties.Settings.Default.DarkMode;
         bool menuExpand = true;
-
+        Color menuItemColor = Color.White;
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+        Color mainColor = Color.DarkOrange;
         public fMain(Account acc)
         {
             InitializeComponent();
@@ -38,24 +44,23 @@ namespace baocao
         public void SetLoginAccount(Account value)
         {
             loginAccount = value;
-            MessageBox.Show($"Vai trò của user: {loginAccount.VaiTro}");
             changeAccount(loginAccount.VaiTro);
         }
         void changeAccount(string vai_tro)
         {
             if (formChild is fTaiKhoan child)
             {
-                child.enableAdmin(vai_tro == "Admin");
+                child.enableAdmin(vai_tro == "Quản trị viên");
             }
         }
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
-            if (formChild != null)
-            {
-                formChild.Close();
-                panelBody.Controls.Remove(formChild);
-                formChild.Dispose();
-            }
+            //if (formChild != null)
+            //{
+            //    formChild.Close();
+            //    panelBody.Controls.Remove(formChild);
+            //    formChild.Dispose();
+            //}
             formChild = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
@@ -69,22 +74,24 @@ namespace baocao
             childForm.BringToFront();
             childForm.Show();
         }
-        private void buttonControl(Guna.UI2.WinForms.Guna2Button btn)
+        private void buttonControl(FontAwesome.Sharp.IconButton btn)
         {
+            btnPage.IconChar = btn.IconChar;
             labelPage.Text = btn.Text;
             foreach (Control ctrl in panelMenu.Controls)
             {
-                if (ctrl is Guna.UI2.WinForms.Guna2Button button)
+                if (ctrl is FontAwesome.Sharp.IconButton button)
                 {
-                    button.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-                    button.BackColor = Color.Transparent;
-                    button.ForeColor = this.BackColor;
-                    button.FillColor = Color.Transparent;
+                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    button.BackColor = mainColor;
+                    button.ForeColor = menuItemColor;
+                    button.IconColor = menuItemColor;
                 }
             }
-            btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
-            btn.BackColor = dragging ? Color.DarkSlateGray : Color.White;
-            btn.ForeColor = dragging ? Color.White : Color.Chocolate;
+            btn.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            btn.BackColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            btn.ForeColor = Color.Chocolate;
+            btn.IconColor = Color.Chocolate;
         }
         protected override void WndProc(ref Message m)
         {
@@ -117,14 +124,33 @@ namespace baocao
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
+
         #endregion
         #region Events
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            Color itemColor = isDarkMode ? Color.White : Color.FromArgb(30, 30, 30);
+            Color backgroundColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            this.BackColor = backgroundColor;
+            labelPage.ForeColor = itemColor;
+            labelName.ForeColor = itemColor;
+            btnPage.IconColor = itemColor;
+            btnPage.BackColor = backgroundColor;
+            btnNoti.BackColor = backgroundColor;
+            btnMinimize.BackColor = btnRestoreDown.BackColor = btnExit.BackColor = backgroundColor;
+            btnLogo.Enabled = false;
+            btnPage.Enabled = false;
+            this.ActiveControl = null;
+            btnHome_Click(sender, e);
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             Application.Exit();
         }
         private void btnRestoreDown_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = null;
             if (this.WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -134,54 +160,73 @@ namespace baocao
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+            this.ActiveControl = null;
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
             openChildForm(new fTrangChu());
             buttonControl(btnHome);
+            this.ActiveControl = null;
         }
-        private void btnCM_Click(object sender, EventArgs e)
+        private void btnHopDong_Click(object sender, EventArgs e)
         {
             openChildForm(new fHopDong());
-            buttonControl(btnCM);
+            buttonControl(btnHopDong);
+            this.ActiveControl = null;
         }
-        private void btnSM_Click(object sender, EventArgs e)
+        private void btnDonHang_Click(object sender, EventArgs e)
         {
             openChildForm(new fDonHang());
-            buttonControl(btnSM);
+            buttonControl(btnDonHang);
+            this.ActiveControl = null;
         }
-        private void btnReports_Click(object sender, EventArgs e)
+        private void btnThongKe_Click(object sender, EventArgs e)
         {
             openChildForm(new fThongKe());
-            buttonControl(btnReports);
+            buttonControl(btnThongKe);
+            this.ActiveControl = null;
         }
-        private void btnUP_Click(object sender, EventArgs e)
-
+        private void btnCaiDat_Click(object sender, EventArgs e)
         {
-            fTaiKhoan acc = new fTaiKhoan(loginAccount);
-            openChildForm(acc);
-            buttonControl(btnUP);
-            changeAccount(loginAccount.VaiTro);
+            fCaiDat formCaiDat = new fCaiDat();
+            formCaiDat.TaiKhoanButtonClicked += fCaiDat_TaiKhoanButtonClicked;
+            openChildForm(formCaiDat);
+            buttonControl(btnCaiDat);
+            this.ActiveControl = null;
         }
-        private void btnSetting_Click(object sender, EventArgs e)
+        private void fCaiDat_TaiKhoanButtonClicked(object sender, EventArgs e)
         {
-            openChildForm(new fCaiDat());
-            buttonControl(btnSetting);
+            openChildForm(new fTaiKhoan(loginAccount));
+        }
+        private void btnNoti_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
+        private void btnNoti_MouseEnter(object sender, EventArgs e)
+        {
+            btnNoti.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            btnNoti.BackColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+        }
+        private void btnNoti_MouseLeave(object sender, EventArgs e)
+        {
+            btnNoti.IconFont = FontAwesome.Sharp.IconFont.Solid;
         }
         private void menuTimer_Tick(object sender, EventArgs e)
         {
             if (menuExpand)
             {
-                panelMenu.Width -= 10;
+                panelMenu.Width -= 20;
                 foreach (Control ctrl in panelMenu.Controls)
                 {
-                    if (ctrl is Guna.UI2.WinForms.Guna2Button && ctrl != btnMenu)
+                    if (ctrl is FontAwesome.Sharp.IconButton button && button != btnLogo)
                     {
-                        ctrl.Hide();
+                        if (button.Tag == null) 
+                            button.Tag = button.Text;
+
+                        button.Text = "";
                     }
                 }
-                btnNoti.Hide();
-                if (panelMenu.Width == 30)
+                if (panelMenu.Width <= 60)
                 {
                     menuExpand = false;
                     menuTimer.Stop();
@@ -189,17 +234,19 @@ namespace baocao
             }
             else
             {
-                panelMenu.Width += 10;
-                foreach (Control ctrl in panelMenu.Controls)
+                panelMenu.Width += 20;
+                if (panelMenu.Width >= 250)
                 {
-                    if (ctrl is Guna.UI2.WinForms.Guna2Button && ctrl != btnMenu)
+                    foreach (Control ctrl in panelMenu.Controls)
                     {
-                        ctrl.Show();
+                        if (ctrl is FontAwesome.Sharp.IconButton button && button != btnLogo)
+                        {
+                            if (button.Tag != null)
+                            {
+                                button.Text = button.Tag.ToString();
+                            }
+                        }
                     }
-                }
-                btnNoti.Show();
-                if (panelMenu.Width == 210)
-                {
                     menuExpand = true;
                     menuTimer.Stop();
                 }
@@ -208,37 +255,32 @@ namespace baocao
         private void btnMenu_Click(object sender, EventArgs e)
         {
             menuTimer.Start();
+            this.ActiveControl = null;
         }
         private void home_BackColorChanged(object sender, EventArgs e)
         {
-            dragging = !dragging;
-            if (dragging)
+            isDarkMode = Properties.Settings.Default.DarkMode;
+            Color itemColor = isDarkMode ? Color.White : Color.FromArgb(30, 30, 30);
+            Color backgroundColor = isDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            labelName.ForeColor = itemColor;
+            labelPage.ForeColor = btnPage.IconColor = itemColor;
+            btnPage.BackColor = btnNoti.BackColor = backgroundColor;
+            btnMinimize.BackColor = btnRestoreDown.BackColor = btnExit.BackColor = backgroundColor;
+            buttonControl(btnCaiDat);
+        }
+        private void fMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
             {
-                panelMenu.BackColor = Color.LawnGreen;
-                panelMenu.ForeColor = Color.FromArgb(30, 30, 30);
+                this.ActiveControl = null;
             }
-            else
-            {
-                panelMenu.BackColor = Color.DarkOrange;
-                panelMenu.ForeColor = Color.White;
-            }
-            foreach (Control ctrl in panelMenu.Controls)
-            {
-                if (ctrl is Guna.UI2.WinForms.Guna2Button btn)
-                {
-                    btn.ForeColor = this.BackColor;
-                    btn.DisabledState.ForeColor = this.BackColor;
-                }
-            }
-            foreach (Control ctrl in panelNavbar.Controls)
-            {
-                if (ctrl is Label || ctrl is Button)
-                {
-                    ctrl.ForeColor = dragging ? Color.White : Color.Black;
-                }
-            }
-            buttonControl(btnSetting);
+        }
+        private void PanelNavbar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
     }
 }

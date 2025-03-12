@@ -64,8 +64,6 @@ namespace baocao.DAO
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Debug.WriteLine($"Lỗi SQL: {ex}");
-                    Console.WriteLine($"Lỗi SQL: {ex}");
                 }
             }
             return list;
