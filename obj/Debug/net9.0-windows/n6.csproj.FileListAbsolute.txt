@@ -1,0 +1,16 @@
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.csproj.AssemblyReference.cache
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.blank.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.dsbh.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.CM.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.Form5.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.home.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.login.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.Properties.Resources.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.setting.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.thongke.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\baocao.userProfile.resources
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.csproj.GenerateResource.cache
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.AssemblyInfoInputs.cache
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.AssemblyInfo.cs
+D:\code\C#\PhanMemQuanLyBanHangMoiTruong\n6\obj\Debug\net9.0-windows\n6.csproj.CoreCompileInputs.cache
