@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace baocao.DTO
 {
@@ -20,15 +15,15 @@ namespace baocao.DTO
             this.Email = email;
             this.Sdt = sdt;
         }
-        public Account (DataRow dataRow)
+        public Account(DataRow dataRow)
         {
-            this.MaNguoiDung = dataRow["ma_nguoi_dung"].ToString();
-            this.Ten = dataRow["ten"].ToString();
-            this.VaiTro = dataRow["vai_tro"].ToString();
-            this.TenDangNhap = dataRow["ten_dang_nhap"].ToString();
-            this.MatKhau = dataRow["mat_khau"].ToString();
-            this.Email = dataRow["email"].ToString();
-            this.Sdt = dataRow["sdt"].ToString();
+            MaNguoiDung = dataRow["ma_nguoi_dung"]?.ToString();
+            Ten = dataRow["ten"]?.ToString();
+            VaiTro = dataRow["vai_tro"]?.ToString();
+            TenDangNhap = dataRow["ten_dang_nhap"]?.ToString();
+            MatKhau = dataRow.Table.Columns.Contains("mat_khau") ? dataRow["mat_khau"]?.ToString() : null;
+            Email = dataRow["email"]?.ToString();
+            Sdt = dataRow["sdt"]?.ToString();
         }
         private string ma_nguoi_dung;
         private string ten;

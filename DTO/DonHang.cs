@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 
 namespace baocao.DTO
 {
     public class DonHang
     {
-        public DonHang(string maHD, string maDH, DateTime ngayLM, DateTime ngayKQ, int quy, string trangThai)
+        public DonHang(string maHD, string maDH, DateTime ngayLM, DateTime ngayKQ, int quy, string trangThai, string tenCT = null)
         {
+            this.TenCT = tenCT;
             this.MaHD = maHD;
             this.MaDH = maDH;
             this.NgayLM = ngayLM;
@@ -23,8 +19,9 @@ namespace baocao.DTO
         {
             if (!row.Table.Columns.Contains("MaDH"))
             {
-                throw new ArgumentException("Cột 'MaDH' không tồn tại trong DataTable.");
+                MessageBox.Show("Cột 'MaDH' không tồn tại trong DataTable.");
             }
+            this.TenCT = row["TenCT"].ToString();
             this.MaHD = row["MaHD"].ToString();
             this.MaDH = row["MaDH"].ToString();
             this.NgayLM = row["NgayLM"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(row["NgayLM"]);
@@ -33,6 +30,7 @@ namespace baocao.DTO
             this.Trangthai = row["Trangthai"].ToString();
         }
 
+        private string tenCT;
         private string maHD;
         private string maDH;
         private DateTime ngayLM;
@@ -40,6 +38,7 @@ namespace baocao.DTO
         private int quy;
         private string trangThai;
 
+        public string TenCT { get => tenCT; set => tenCT = value; }
         public string MaHD { get => maHD; set => maHD = value; }
         public string MaDH { get => maDH; set => maDH = value; }
         public DateTime NgayLM { get => ngayLM; set => ngayLM = value; }

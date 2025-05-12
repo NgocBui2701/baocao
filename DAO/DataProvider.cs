@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-
 
 namespace baocao.DAO
 {
@@ -30,8 +23,8 @@ namespace baocao.DAO
                 DataProvider.instance = value;
             }
         }
-        private string connStr = "Data Source=.\\mssqlserver01;Initial Catalog=QUAN_LY_DON_HANG_MOI_TRUONG;Integrated Security=True; TrustServerCertificate=True;";
-
+        private string connStr = "Data Source=LAPTOPCUABUI;Initial Catalog=QUAN_LY_DON_HANG_MOI_TRUONG;Integrated Security=True; TrustServerCertificate=True;";
+        private string masterConnStr = "Data Source=LAPTOPCUABUI;Initial Catalog=master;Integrated Security=True;TrustServerCertificate=True;";
         private DataProvider() { }
         public DataTable ExecuteQuery(string query, object[] parameters = null, bool isStoredProc = false)
         {
@@ -71,14 +64,11 @@ namespace baocao.DAO
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Debug.WriteLine($"Lỗi SQL: {ex}");
-                    Console.WriteLine($"Lỗi SQL: {ex}");
                 }
                 connection.Close();
             }
             return data;
         }
-
         public int ExecuteNonQuery(string query, object[] parameters)
         {
             int data = 0;
@@ -101,7 +91,6 @@ namespace baocao.DAO
                             command.Parameters.AddWithValue(paramName, parameters[i] ?? DBNull.Value);
                         }
                     }
-
                     data = command.ExecuteNonQuery();
                 }
             }
@@ -116,8 +105,6 @@ namespace baocao.DAO
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.CommandType = isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text;
-
-                    // Thêm tham số nếu có
                     if (parameters != null)
                     {
                         foreach (var param in parameters)
@@ -125,13 +112,11 @@ namespace baocao.DAO
                             command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
                         }
                     }
-
                     data = command.ExecuteScalar();
                 }
             }
             return data;
         }
-
         public object ExecuteProcedureWithOutput(string procName, Dictionary<string, object> inputParams, string outputParamName)
         {
             object outputValue = null;
@@ -141,8 +126,6 @@ namespace baocao.DAO
                 using (SqlCommand command = new SqlCommand(procName, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-
-                    // Thêm tham số đầu vào
                     if (inputParams != null)
                     {
                         foreach (var param in inputParams)
@@ -150,21 +133,98 @@ namespace baocao.DAO
                             command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
                         }
                     }
-
-                    // Thêm tham số OUTPUT
                     SqlParameter outputParam = new SqlParameter(outputParamName, SqlDbType.VarChar, 10);
                     outputParam.Direction = ParameterDirection.Output;
                     command.Parameters.Add(outputParam);
-
-                    // Thực thi Stored Procedure
                     command.ExecuteNonQuery();
-
-                    // Lấy giá trị OUTPUT
                     outputValue = outputParam.Value;
                 }
             }
             return outputValue;
         }
+        public void BackupDatabase(string backupFilePath)
+        {
+            using (SqlConnection connection = new SqlConnection(connStr))
+            {
+                connection.Open();
+                string backupQuery = $"BACKUP DATABASE [{connection.Database}] TO DISK = '{backupFilePath}' WITH INIT";
+                using (SqlCommand command = new SqlCommand(backupQuery, connection))
+                {
+                    command.CommandTimeout = 300;
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public void RestoreDatabase(string backupFilePath)
+        {
+            using (SqlConnection connection = new SqlConnection(masterConnStr))
+            {
+                connection.Open();
 
+                string killConnections = @"
+                    DECLARE @kill varchar(8000) = '';
+                    SELECT @kill = @kill + 'KILL ' + CAST(spid AS varchar(10)) + ';'
+                    FROM sys.sysprocesses
+                    WHERE DB_NAME(dbid) = 'QUAN_LY_DON_HANG_MOI_TRUONG' AND spid > 50;
+                    EXEC(@kill);";
+                using (SqlCommand cmd = new SqlCommand(killConnections, connection))
+                {
+                    cmd.CommandTimeout = 300;
+                    cmd.ExecuteNonQuery();
+                }
+
+                string setSingleUser = $"ALTER DATABASE [QUAN_LY_DON_HANG_MOI_TRUONG] SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+                using (SqlCommand cmd = new SqlCommand(setSingleUser, connection))
+                {
+                    cmd.CommandTimeout = 300;
+                    cmd.ExecuteNonQuery();
+                }
+
+                string restoreQuery = $"RESTORE DATABASE [QUAN_LY_DON_HANG_MOI_TRUONG] FROM DISK = '{backupFilePath}' WITH REPLACE";
+                using (SqlCommand cmd = new SqlCommand(restoreQuery, connection))
+                {
+                    cmd.CommandTimeout = 300;
+                    cmd.ExecuteNonQuery();
+                }
+
+                string setMultiUser = $"ALTER DATABASE [QUAN_LY_DON_HANG_MOI_TRUONG] SET MULTI_USER";
+                using (SqlCommand cmd = new SqlCommand(setMultiUser, connection))
+                {
+                    cmd.CommandTimeout = 300;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public bool TestConnection()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connStr))
+                {
+                    connection.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool CheckDatabaseConnections()
+        {
+            using (SqlConnection connection = new SqlConnection(masterConnStr))
+            {
+                connection.Open();
+                string query = @"
+            SELECT COUNT(*) 
+            FROM sys.sysprocesses 
+            WHERE DB_NAME(dbid) = 'QUAN_LY_DON_HANG_MOI_TRUONG' AND spid > 50;";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    int connectionCount = (int)cmd.ExecuteScalar();
+                    return connectionCount == 0;
+                }
+            }
+        }
     }
 }

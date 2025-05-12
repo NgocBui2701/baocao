@@ -27,12 +27,12 @@ namespace baocao.DAO
                 HopDongDAO.instance = value;
             }
         }
-        private HopDongDAO() { }
-        public List<HopDong> loadData()
+        public HopDongDAO() { }
+        public List<HopDong> LoadData()
         {
             List<HopDong> list = new List<HopDong>();
             string query = "USP_GetHopDongList";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { 100 }, true);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { }, true);
             foreach (DataRow row in data.Rows)
             {
                 try
@@ -42,12 +42,12 @@ namespace baocao.DAO
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Có lỗi xảy ra");
+                    MessageBox.Show("Có lỗi xảy ra");
                 }
             }
             return list;
         }
-        public List<HopDong> searchHopDong(string keyword)
+        public List<HopDong> SearchHopDong(string keyword)
         {
             List<HopDong> list = new List<HopDong>();
             string query = "USP_SearchHopDong";
@@ -68,26 +68,70 @@ namespace baocao.DAO
             }
             return list;
         }
-        public bool insertHopDong(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public List<string> GetAllMaHopDong()
         {
-            string query = "EXEC USP_InsertHopDong @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, tenCT, kyHieuCT, ngayHD, tenDaiDien, sdt, diaChi });
-            loadData();
+            List<string> list = new List<string>();
+            string query = "SELECT ma_hop_dong FROM HopDong";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                list.Add(row["ma_hop_dong"].ToString());
+            }
+
+            return list;
+        }
+        public bool InsertHopDong(string maHD, string maCT, DateTime ngayHD)
+        {
+            string query = "EXEC USP_InsertHopDong @MaHD, @MaCT, @NgayHD";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, ngayHD });
+            LoadData();
             return result < 0;
         }
-        public bool updateHopDong(string maHD, string maCT, string tenCT, string kyHieuCT, string ngayHD, string tenDaiDien, string sdt, string diaChi)
+        public bool CheckMaCongTyExists(string maCT)
         {
-            string query = "EXEC USP_UpdateHopDong @MaHD, @MaCT, @TenCT, @KyHieuCT, @NgayHD, @TenDaiDien, @Sdt, @DiaChi";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, tenCT, kyHieuCT, ngayHD, tenDaiDien, sdt, diaChi });
-            loadData();
+            string query = "SELECT COUNT(*) FROM CongTy WHERE ma_cong_ty = @MaCT";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@MaCT", maCT }
+            };
+            object result = DataProvider.Instance.ExecuteScalar(query, parameters, false);
+            return Convert.ToInt32(result) > 0;
+        }
+        public string GenerateMaHopDong()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteProcedureWithOutput("USP_GenerateMaHopDong", null, "@NewMaHopDong")?.ToString() ?? string.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+        public bool UpdateHopDong(string maHD, string maCT, DateTime ngayHD)
+        {
+            string query = "EXEC USP_UpdateHopDong @MaHD, @MaCT, @NgayHD";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD, maCT, ngayHD });
+            LoadData();
             return result < 0;
         }
-        public bool deleteHopDong(string maHD)
+        public bool DeleteHopDong(string maHD)
         {
-            string query = "EXEC USP_DeleteHopDong @MaHD";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD });
-            loadData();
-            return result < 0;
+            try
+            {
+                string query = "EXEC USP_DeleteHopDong @MaHD";
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maHD });
+                LoadData();
+                return result < 0;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi khi xóa hợp đồng: hợp đồng đã phát sinh đơn hàng, không thể xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         
 
